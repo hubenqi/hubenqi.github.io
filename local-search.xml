@@ -28,5 +28,30 @@
   
   
   
+  <entry>
+    <title>Unity动态适配相机FOV</title>
+    <link href="/2019/05/14/Unity%E5%8A%A8%E6%80%81%E9%80%82%E9%85%8D%E7%9B%B8%E6%9C%BAFOV/"/>
+    <url>/2019/05/14/Unity%E5%8A%A8%E6%80%81%E9%80%82%E9%85%8D%E7%9B%B8%E6%9C%BAFOV/</url>
+    
+    <content type="html"><![CDATA[<p>根据设置的视野，在不同分辨率下自动调整相机FOV </p><span id="more"></span><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> UnityEngine;<br> <br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 相机FOV自动调整</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> 根据设置的视野自动调整相机FOV</span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CameraFOVAdjust</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    [<span class="hljs-meta">Tooltip(<span class="hljs-string">&quot;距离&quot;</span>)</span>]<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">float</span> distance = <span class="hljs-number">20f</span>;<br>    [<span class="hljs-meta">Tooltip(<span class="hljs-string">&quot;宽度&quot;</span>)</span>]<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">float</span> frustumWidth = <span class="hljs-number">40.3f</span>;<br>    [<span class="hljs-meta">Tooltip(<span class="hljs-string">&quot;限制最大的FOV值&quot;</span>)</span>]<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">float</span> maxFOV = <span class="hljs-number">65</span>;<br> <br>    <span class="hljs-keyword">private</span> Camera mainCamera;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">float</span> cameraAspect;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        mainCamera = Camera.main;<br>        CameraAdjust();<br>    &#125;<br> <br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>()</span><br>    &#123;<br><span class="hljs-meta">#<span class="hljs-keyword">if</span> UNITY_EDITOR</span><br>        CameraAdjust();<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>    &#125;<br> <br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 动态调整相机FOV，使不同分辨率下相机能看到相同的宽度视野</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    [<span class="hljs-meta">ContextMenu(<span class="hljs-string">&quot;执行&quot;</span>)</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">CameraAdjust</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (mainCamera == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-comment">//分辨率发生改变时才需要重新刷新</span><br>        <span class="hljs-keyword">if</span> (cameraAspect.Equals(mainCamera.aspect)) <span class="hljs-keyword">return</span>;<br> <br>        cameraAspect = mainCamera.aspect;<br>        <span class="hljs-comment">//计算Fov</span><br>        <span class="hljs-built_in">float</span> _fov = <span class="hljs-number">2</span> * Mathf.Atan(frustumWidth / cameraAspect * <span class="hljs-number">0.5f</span> / distance) * Mathf.Rad2Deg;<br>        <span class="hljs-comment">//防止Fov过大，设置最大值</span><br>        <span class="hljs-keyword">if</span> (maxFOV &gt; <span class="hljs-number">0</span> &amp;&amp;_fov &gt; maxFOV)<br>        &#123;<br>            _fov = maxFOV;<br>        &#125;<br>        mainCamera.fieldOfView = _fov;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Unity开发笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Unity</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
