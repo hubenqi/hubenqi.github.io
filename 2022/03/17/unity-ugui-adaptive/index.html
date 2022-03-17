@@ -1,0 +1,801 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/headIcon.jpg">
+  <link rel="icon" href="/img/headIcon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hubenqi">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、前言随着技术的发展，Android和iOS的设备种类越来越多，有普通16:9的屏幕，也有最近几年出来的全面屏，水滴屏，刘海屏等，以及各种平板设备。本篇文章是对项目中的UI适配做的总结归纳。 二、设备屏幕数据分析 Android设备分辨率分布情况：    IOS设备分辨率情况：    设备 分辨率 屏幕比例    iPhone 13 Pro Max，12 Pro Max 1284 × 277">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity UI适配总结">
+<meta property="og:url" content="https://hubenqi.github.io/2022/03/17/unity-ugui-adaptive/index.html">
+<meta property="og:site_name" content="hubenqi">
+<meta property="og:description" content="一、前言随着技术的发展，Android和iOS的设备种类越来越多，有普通16:9的屏幕，也有最近几年出来的全面屏，水滴屏，刘海屏等，以及各种平板设备。本篇文章是对项目中的UI适配做的总结归纳。 二、设备屏幕数据分析 Android设备分辨率分布情况：    IOS设备分辨率情况：    设备 分辨率 屏幕比例    iPhone 13 Pro Max，12 Pro Max 1284 × 277">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hubenqi.github.io/img/indexImg/unity-nier-mode.jpg">
+<meta property="article:published_time" content="2022-03-17T11:16:10.000Z">
+<meta property="article:modified_time" content="2022-03-17T11:41:31.659Z">
+<meta property="article:author" content="Hubenqi">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="UGUI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hubenqi.github.io/img/indexImg/unity-nier-mode.jpg">
+  
+  
+  <title>Unity UI适配总结 - hubenqi</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"hubenqi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Hubenqi Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/nier05.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Unity UI适配总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-17 19:16" pubdate>
+          2022年3月17日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Unity UI适配总结</h1>
+            
+            <div class="markdown-body">
+              
+              <meta name="referrer" content="no-referrer"/>
+
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>随着技术的发展，Android和iOS的设备种类越来越多，有普通16:9的屏幕，也有最近几年出来的全面屏，水滴屏，刘海屏等，以及各种平板设备。本篇文章是对项目中的UI适配做的总结归纳。</p>
+<h1 id="二、设备屏幕数据分析"><a href="#二、设备屏幕数据分析" class="headerlink" title="二、设备屏幕数据分析"></a>二、设备屏幕数据分析</h1><ul>
+<li>Android设备分辨率分布情况：</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647396807746-467378d4-07ae-4a04-8427-4240181be484.png#clientId=uc2ad04dd-f0bf-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u8d0d26d6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=753&originWidth=1176&originalType=url&ratio=1&rotation=0&showTitle=true&size=233859&status=done&style=none&taskId=u90b957d2-e1eb-4cc6-a5e4-47206b49ee2&title=Android%E5%B1%8F%E5%B9%95%E5%88%86%E8%BE%A8%E7%8E%87%E5%88%86%E5%B8%83-%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90%E7%BD%91%E7%BB%9C" srcset="/img/loading.gif" lazyload alt="image.png" title="Android屏幕分辨率分布-数据来源网络"></p>
+<ul>
+<li><p>IOS设备分辨率情况：</p>
+<table>
+<thead>
+<tr>
+<th><strong>设备</strong></th>
+<th><strong>分辨率</strong></th>
+<th><strong>屏幕比例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>iPhone 13 Pro Max，12 Pro Max</strong></td>
+<td>1284 × 2778</td>
+<td>9 : 19.5</td>
+</tr>
+<tr>
+<td><strong>iPhone 13 &#x2F; 13 Pro，12 &#x2F; 12 Pro</strong></td>
+<td>1170 × 2532</td>
+<td>9 : 19.5</td>
+</tr>
+<tr>
+<td><strong>iPhone 13 mini，12 mini</strong></td>
+<td>1080 × 2340</td>
+<td>9 : 19.5</td>
+</tr>
+<tr>
+<td><strong>iPhone 11 Pro Max、 XS Max</strong></td>
+<td>1242 × 2688</td>
+<td>9 : 19.5</td>
+</tr>
+<tr>
+<td><strong>iPhone 11 Pro，XS， X</strong></td>
+<td>1125 × 2436</td>
+<td>9 : 19.5</td>
+</tr>
+<tr>
+<td><strong>iPhone 11，XR</strong></td>
+<td>828 × 1792</td>
+<td>9 : 19.5</td>
+</tr>
+<tr>
+<td><strong>iPhone 8+，7+，6s+，6+</strong></td>
+<td>1242 × 2208</td>
+<td>9 : 16</td>
+</tr>
+<tr>
+<td><strong>iPhone SE，8，7，6s，6</strong></td>
+<td>750 × 1334</td>
+<td>9 : 19.5</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>通过分析上面的数据我们得到了一些结论，现在Android主流的设备基本都是20:9和19.5:9的比例了，IOS上已经是统一规格使用的是19.5:9了。</p>
+</li>
+<li><p>下面是主流设备分辨率的信息，按照个人理解的市场占有排序从多到少，不够严谨，数据仅供参考 。</p>
+</li>
+</ul>
+<p>手机：</p>
+<pre><code class="hljs">  - 2400x1080=20:9=2.2222222
+  - 2340x1080=19.5:9=2.16666666
+  - 3200x1440=20:9=2.2222222
+  - 1920x1080=16:9=1.7777777
+  - 2520x1080=21:9=2.333333333
+</code></pre>
+<p>平板：</p>
+<pre><code class="hljs">  - 2048x1536=4:3=1.33333333
+  - 2048x1536=7:5=1.4
+  - 2560x1600=16:10=1.6
+</code></pre>
+<h1 id="三、UGUI基础知识点"><a href="#三、UGUI基础知识点" class="headerlink" title="三、UGUI基础知识点"></a>三、UGUI基础知识点</h1><h4 id="Pivot轴心"><a href="#Pivot轴心" class="headerlink" title="Pivot轴心"></a>Pivot轴心</h4><p>此RectTransform中围绕其旋转的标准化位置，RectTransform的位置、旋转和缩放都是围绕轴心来进行的。</p>
+<h4 id="Anchor锚点"><a href="#Anchor锚点" class="headerlink" title="Anchor锚点"></a>Anchor锚点</h4><p>定义UI布局的核心属性，详细描述查看<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2019.4/Manual/UIBasicLayout.html">官方文档</a></p>
+<h4 id="其他重要属性含义"><a href="#其他重要属性含义" class="headerlink" title="其他重要属性含义"></a>其他重要属性含义</h4><ul>
+<li>offsetMax &#x3D; 矩形右上角相对于右上锚点的偏移。</li>
+<li>offsetMin &#x3D; 矩形左下角相对于左下锚点的偏移。</li>
+<li>sizeDelta &#x3D;  offsetMax - offsetMin &#x3D;（自身矩形宽 - 锚点的宽， 自身矩形高 - 锚点的高）</li>
+<li>anchoredPositon &#x3D; offsetMin + Vector2.Scale(sizeDelta, rect.pivot) &#x3D; 矩形左下点相对于父节点轴心坐标 - 锚点左下点相对于父节点轴心坐标 + sizeDelta* 自身轴心<ul>
+<li>几何意义<ol>
+<li>Pivot在自身区域的比例，映射到Anchors上的点，再与Pivot的相对位置，就是anchoredPosition。</li>
+<li>从anchors的pivot位置，指向RectTransform的pivot的一个向量<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs csharp">Vector2 localPosition2D = <span class="hljs-keyword">new</span> Vector2(rect.localPosition.x, rect.localPosition.y);<br>Vector2 anchorMinPos = parentRect.rect.min + Vector2.Scale(rect.anchorMin, parentRect.rect.size);<br>Vector2 rectMinPos = rect.rect.min + localPosition2D;<br>Vector2 offsetMin = rectMinPos - anchorMinPos;<br><br>Vector2 anchorMaxPos = parentRect.rect.max - Vector2.Scale(Vector2.one - rect.anchorMax, parentRect.rect.size);<br>Vector2 rectMaxPos = rect.rect.max + localPosition2D;<br>Vector2 offsetMax = rectMaxPos - anchorMaxPos;<br><br>Vector2 sizeDelta = offsetMax - offsetMin;<br>Vector2 anchoredPosition = offsetMin + Vector2.Scale(sizeDelta, rect.pivot); <br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、UI布局适配"><a href="#四、UI布局适配" class="headerlink" title="四、UI布局适配"></a>四、UI布局适配</h1><h3 id="Canvas-Scaler-设置"><a href="#Canvas-Scaler-设置" class="headerlink" title="Canvas Scaler 设置"></a>Canvas Scaler 设置</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647417508095-31bf26e0-995e-470a-9849-9978718cff0f.png#clientId=uc2ad04dd-f0bf-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=128&id=u9f40d15f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=128&originWidth=503&originalType=binary&ratio=1&rotation=0&showTitle=false&size=13232&status=done&style=none&taskId=u9e8b9b83-459f-4d73-a66f-ac3a48a0ea2&title=&width=503" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<ol>
+<li>UI Scale Mode选择Scale With Screen Size。</li>
+<li>Reference Resolution 使用1334x750也就是16:9的比例，这个是UI设计的<strong>基础画布</strong>大小。</li>
+<li>Screen Match Mode选择Expand：水平或垂直扩展画布区域，使画布不会小于参考。</li>
+</ol>
+<p>设置好Canvas Scaler基本上就能满足大部分设备上的适配了，但是还是存在一些问题：UI背景拉伸变形、左右对齐的UI元素被刘海遮挡、GridLayoutGroup数量分布等等问题。</p>
+<h3 id="基于锚点的布局适配"><a href="#基于锚点的布局适配" class="headerlink" title="基于锚点的布局适配"></a>基于锚点的布局适配</h3><p>当我们在<strong>基础画布</strong>设计好UI的时候默认应该长这样子<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647481749502-706a77d9-6130-4e3a-8e1b-97ff1d25e53c.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=179&id=u029c5fa4&margin=%5Bobject%20Object%5D&name=image.png&originHeight=375&originWidth=789&originalType=binary&ratio=1&rotation=0&showTitle=true&size=393203&status=done&style=none&taskId=uc0789b22-66a9-474b-b878-cfa1d01fd32&title=%E5%9C%A8%E5%92%8C%E9%BB%98%E8%AE%A4%E7%94%BB%E5%B8%83%E4%B8%80%E6%A0%B7%E6%AF%94%E4%BE%8B19%3A6%E6%89%8B%E6%9C%BA%E4%B8%8A%E7%9A%84%E6%98%BE%E7%A4%BA&width=377" srcset="/img/loading.gif" lazyload alt="image.png" title="在和默认画布一样比例19:6手机上的显示"><br>但是在宽屏手上长这样<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647482314908-bd63fa76-ae2f-42c7-a865-34ebabda8394.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=183&id=u5294157d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=385&originWidth=793&originalType=binary&ratio=1&rotation=0&showTitle=true&size=471062&status=done&style=none&taskId=u62923e30-6802-4a2a-bacb-32038fee8a2&title=iPhone%20X%E4%B8%8A%E7%9A%84%E6%98%BE%E7%A4%BA&width=377" srcset="/img/loading.gif" lazyload alt="image.png" title="iPhone X上的显示"><br>发现UI元素都是居中的，使得手机左右两边留白的空间太大了，我们希望UI元素都能根据屏幕适配宽度，所以我们把标题改成了对齐左上角，分页签对齐左边，删选栏对齐右边， 中间的GridLayoutGroup使用stretch拉伸对齐整个屏幕，然后看看结果<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647483221377-40791cbf-d13a-40e8-8bd0-662edf3d0511.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=183&id=u7e4cdef3&margin=%5Bobject%20Object%5D&name=image.png&originHeight=386&originWidth=795&originalType=binary&ratio=1&rotation=0&showTitle=true&size=458061&status=done&style=none&taskId=u11c592e3-875a-4e93-8c44-d141846e5d4&title=%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E7%9A%84%E9%94%9A%E7%82%B9%E5%AF%B9%E9%BD%90%E5%90%8E%E5%9C%A8iPhone%20X%E4%B8%8A%E7%9A%84%E6%98%BE%E7%A4%BA&width=377" srcset="/img/loading.gif" lazyload alt="image.png" title="使用简单的锚点对齐后在iPhone X上的显示"><br>我们会发现存在三个问题：</p>
+<ol>
+<li>左边页签被刘海遮挡了</li>
+<li>中间的GridLayoutGroup里的个数布局不能动态适配</li>
+<li>背景被拉伸变形了</li>
+</ol>
+<h4 id="刘海适配"><a href="#刘海适配" class="headerlink" title="刘海适配"></a>刘海适配</h4><p>   因为现在大部分全面屏手机都在是手机顶部放置摄像头，所以造成手机屏幕顶部会出现刘海，水滴，挖孔等等情况，从而引起横屏游戏对齐左右两边的UI控件会被这些东西阻挡。<br>解决刘海遮挡问题有几种方案：<br>1.通过代码<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2019.4/ScriptReference/Screen.html">Screen.safeArea</a>获取到设备的安全范围，根据这个值动态调整UI的 Anchores，但是获取Safe Area的API在一些Android上是拿不到值的，原因是Google是在Android 9.0之后才统一接口的。但是我们要支持Android 9.0之前的设备所以不能直接使用这个方案。<br>2.通过设置Anchors的anchorMax和anchorMin实现随着手机比例大于基准比例16:9的时候左右两边会动态预留出空间，anchorMin设置为(x，0)，anchorMax设置为(1-x，1)，x&#x3D;60&#x2F;(1624-1334)&#x3D;0.2，使UI能整体对齐下面图上的两条线。</p>
+<blockquote>
+<p>x&#x3D;60&#x2F;(1624-1334)&#x3D;0.2，1334是基础画布的宽，1624是iPhoneX在基础画布上的同比宽，60是刘海的宽度</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647492022799-557088f5-2c66-4875-83b8-0af18d6e8c3b.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=414&id=ubd42a9cc&name=image.png&originHeight=414&originWidth=770&originalType=binary&ratio=1&rotation=0&showTitle=true&size=354438&status=done&style=none&taskId=u49e69802-37cb-431e-b98c-443f09ab1c2&title=anchorMin%3D%280.2%EF%BC%8C0%29%EF%BC%8CanchorMax%3D%280.8%EF%BC%8C1%29&width=770" srcset="/img/loading.gif" lazyload alt="image.png" title="anchorMin=(0.2，0)，anchorMax=(0.8，1)"><br>可以得到一个能在16:9和19.5:9带刘海的设备上都有着不错的适配效果的方案。<br><img src="https://cdn.nlark.com/yuque/0/2022/gif/21441051/1647491239284-041e582d-d72c-4caf-bba0-bda83f2ed6e8.gif#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=ui&id=ubb1bcc7a&name=GIF%202022-3-17%2012-22-12.gif&originHeight=448&originWidth=796&originalType=binary&ratio=1&rotation=0&showTitle=true&size=236947&status=done&style=none&taskId=ub7676abf-196a-4948-8c46-7e156c31517&title=iPhone8%E5%92%8CiPhone%20X%E4%B8%8A%E7%9A%84%E9%80%82%E9%85%8D%E6%95%88%E6%9E%9C" srcset="/img/loading.gif" lazyload alt="GIF 2022-3-17 12-22-12.gif" title="iPhone8和iPhone X上的适配效果"><br>在其他设备上的情况：<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647493071770-a50465dc-28ae-4e5c-8527-0adf4a8b9aee.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=166&id=u24c81577&name=image.png&originHeight=271&originWidth=573&originalType=binary&ratio=1&rotation=0&showTitle=true&size=266259&status=done&style=none&taskId=ub94bb672-09ed-4099-88ec-9a3732c44a2&title=%E5%8D%8E%E4%B8%BA%20P40%20Pro&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="华为 P40 Pro"><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647493544830-85f9e98b-b08e-407e-baa9-9e605e953d49.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=168&id=u7ccf198d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=268&originWidth=557&originalType=binary&ratio=1&rotation=0&showTitle=true&size=237908&status=done&style=none&taskId=ud8021825-2a54-49b9-a392-c0c18901747&title=%E7%BA%A2%E7%B1%B3%206Pro&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="红米 6Pro"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647493155205-def09053-ab9c-4813-93e8-b100883dcce8.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=165&id=uda49d0ab&name=image.png&originHeight=268&originWidth=570&originalType=binary&ratio=1&rotation=0&showTitle=true&size=261963&status=done&style=none&taskId=ue53b5b75-f004-4139-85aa-b75c6727a2d&title=OnePlus%206T&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="OnePlus 6T"><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647493463364-85a9359f-cff8-4e24-bd02-6d9f6709f5a2.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=174&id=u26c3ee85&name=image.png&originHeight=264&originWidth=532&originalType=binary&ratio=1&rotation=0&showTitle=true&size=240946&status=done&style=none&taskId=ubedae79e-76a4-4b5e-8378-ed992be20f9&title=%E4%B8%89%E6%98%9F%20S10e&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="三星 S10e"></p>
+<h4 id="GridLayoutGroup适配"><a href="#GridLayoutGroup适配" class="headerlink" title="GridLayoutGroup适配"></a>GridLayoutGroup适配</h4><p>GridLayoutGroup布局方面适配其实比较简单，我们只要根据GridLayoutGroup的Rect Transform的宽度动态计算出Spacing的值和Consstrain Count值就可以和上面提到的Anchors适配搭配使用<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647498637664-a9da87fe-c8f2-4c55-894b-e4ff416c901e.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=333&id=u14da3d3f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=438&originWidth=507&originalType=binary&ratio=1&rotation=0&showTitle=true&size=36453&status=done&style=none&taskId=ucc5614a7-cccd-4036-b8d3-fcc467732a4&title=GridLayoutGroup%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE&width=386" srcset="/img/loading.gif" lazyload alt="image.png" title="GridLayoutGroup相关设置"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647498832190-589391fd-b0d8-4275-ad1e-0faf92604073.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=172&id=u995900c1&margin=%5Bobject%20Object%5D&name=image.png&originHeight=394&originWidth=801&originalType=binary&ratio=1&rotation=0&showTitle=true&size=477668&status=done&style=none&taskId=uf2ae8e8f-62d2-4aa9-804f-72ad4e8b7c8&title=iPhone%2012%E4%B8%8A%E6%95%88%E6%9E%9C&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="iPhone 12上效果"><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647498749378-7f7f5af5-ad2f-45aa-8ccf-149bef329f6e.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=162&id=u399b8334&margin=%5Bobject%20Object%5D&name=image.png&originHeight=372&originWidth=802&originalType=binary&ratio=1&rotation=0&showTitle=true&size=475657&status=done&style=none&taskId=u469c6ca7-8214-41e8-8aed-8d463e4aaa9&title=%E7%BA%A2%E7%B1%B3%20Note7%E4%B8%8A%E6%95%88%E6%9E%9C&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="红米 Note7上效果"></p>
+<h4 id="背景适配"><a href="#背景适配" class="headerlink" title="背景适配"></a>背景适配</h4><ul>
+<li>背景可被拉伸</li>
+</ul>
+<p>背景热更是可以被拉伸使用，那边直接把背景的适配调成<img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647499084536-7042b423-5897-4b45-a17c-09c19f363023.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=61&id=uda785d0d&name=image.png&originHeight=61&originWidth=60&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1460&status=done&style=none&taskId=uabd957ef-963d-4b7b-a4ab-3c2bdaac368&title=&width=60" srcset="/img/loading.gif" lazyload alt="image.png">，这样就可以直接铺满整个屏幕。</p>
+<ul>
+<li>背景不允许拉伸</li>
+</ul>
+<p>不允许拉伸的背景我们会把背景的尺寸做到1624x1000，这两个值来源于我们制定的标准是最大适配好19.5:9，和最小适配4:3，当设备的分辨率在这我们制定的标准内时背景就是1624x1000里裁减的效果，如果超出这个标准我们就使用等比缩放处理背景。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs csharp">RectTransform _rectTrans = GetComponent&lt;RectTransform&gt;();<br><br>CanvasScaler _scaler = _rectTrans.GetComponentInParent&lt;CanvasScaler&gt;();<br>RectTransform _rectTransform = _scaler.GetComponent&lt;RectTransform&gt;();<br><span class="hljs-built_in">float</span> _width = _rectTransform.sizeDelta.x;<br><span class="hljs-built_in">float</span> _height = _rectTransform.sizeDelta.y;<br><br><span class="hljs-built_in">float</span> _xScale = _width / _rectTrans.sizeDelta.x;<br><span class="hljs-built_in">float</span> _yScale = _height / _rectTrans.sizeDelta.y;<br><span class="hljs-keyword">var</span> _scale = (_xScale &gt; _yScale) ? _xScale : _yScale;<br><br>_rectTrans.localScale = <span class="hljs-keyword">new</span> Vector2(_scale,_scale);<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647500025530-33cb7408-3dbc-4ae7-9ae8-3b9e02c666b9.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=370&id=u535fb7db&margin=%5Bobject%20Object%5D&name=image.png&originHeight=850&originWidth=804&originalType=binary&ratio=1&rotation=0&showTitle=true&size=883448&status=done&style=none&taskId=uab0d66b4-0a8c-429f-a40f-9a6f652270b&title=iPhone%20X&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="iPhone X"><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647499995353-56bd9ec7-0012-448b-a8b5-4dcd3b99b872.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=373&id=u24770e49&margin=%5Bobject%20Object%5D&name=image.png&originHeight=852&originWidth=800&originalType=binary&ratio=1&rotation=0&showTitle=true&size=824432&status=done&style=none&taskId=uc68a60b9-c983-45e4-b330-f78b2c01d6c&title=iPhone%208&width=350" srcset="/img/loading.gif" lazyload alt="image.png" title="iPhone 8"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647504877120-eabf7338-9791-4133-bc86-9c6c6d85c763.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=241&id=u761b2831&margin=%5Bobject%20Object%5D&name=image.png&originHeight=330&originWidth=915&originalType=binary&ratio=1&rotation=0&showTitle=true&size=464127&status=done&style=none&taskId=u52c5adfa-0d2e-47de-a617-717c1031e38&title=ipad%20Pro%2012&width=669" srcset="/img/loading.gif" lazyload alt="image.png" title="ipad Pro 12"><br>最后就能得到一个比较完善的结果<br><img src="https://cdn.nlark.com/yuque/0/2022/gif/21441051/1647507201673-d6146146-a343-4685-bb2a-6338a1ac1d0a.gif#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=459&id=u98ca869d&name=GIF%202022-3-17%2016-52-03.gif&originHeight=782&originWidth=1192&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5117190&status=done&style=none&taskId=udb1a698b-01a1-4c5f-a9ac-59196550249&title=&width=699" srcset="/img/loading.gif" lazyload alt="GIF 2022-3-17 16-52-03.gif"></p>
+<h1 id="五、异形屏适配"><a href="#五、异形屏适配" class="headerlink" title="五、异形屏适配"></a>五、异形屏适配</h1><p>虽然上面的制作已经能比较完善的解决UI适配问题了，但是Android机器太多样性了一些特殊设备还是会存在遮挡UI，以及玩家也会有各种适配要求。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647510211473-810e7f0f-8376-4cee-a722-7395a34e08d5.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=328&id=u37aeef7c&margin=%5Bobject%20Object%5D&name=image.png&originHeight=328&originWidth=413&originalType=binary&ratio=1&rotation=0&showTitle=true&size=224289&status=done&style=none&taskId=u22c90b8b-832d-4096-94fd-f0ae5f75ea1&title=%E4%B8%89%E6%98%9F%20Galaxy%20Z%20%E8%BF%99%E7%A7%8D%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5%E8%BF%98%E6%98%AF%E6%9C%89%E9%81%AE%E6%8C%A1&width=413" srcset="/img/loading.gif" lazyload alt="image.png" title="三星 Galaxy Z 这种特殊情况还是有遮挡"><br>为了应对这种情况我们抽出个参数让玩家能够按照自己的意思调整UI左右的适配间隔。这个参数一般放在游戏设置界面。<br><img src="https://cdn.nlark.com/yuque/0/2022/gif/21441051/1647515025011-ff471683-08ad-42b0-a8ee-f19dcb282792.gif#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=ui&id=ua21e0121&margin=%5Bobject%20Object%5D&name=GIF%202022-3-17%2019-02-21.gif&originHeight=470&originWidth=584&originalType=binary&ratio=1&rotation=0&showTitle=false&size=817283&status=done&style=none&taskId=uf910dfec-261b-456c-9093-a9292cfc2d2&title=" srcset="/img/loading.gif" lazyload alt="GIF 2022-3-17 19-02-21.gif"><br>这个值的初始值可以做得更加灵活点，可以使用一张设备数据表设置这个值的初始值，表里可以指定一些特殊设备给个我们定义好的初始值，玩家也可以在这基础上在调整。实现原理就是通过脚本根据设置好的值调整UI的anchorMax和anchorMin。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1647515618829-cbcb3b89-b191-40e6-958f-ec7291190f5b.png#clientId=ua939dc0e-6fd4-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=371&id=ua1cb8f50&margin=%5Bobject%20Object%5D&name=image.png&originHeight=432&originWidth=390&originalType=binary&ratio=1&rotation=0&showTitle=false&size=31828&status=done&style=none&taskId=u58da52e3-77d0-423e-a5de-f90a29d7651&title=&width=335" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Unity/" class="category-chain-item">Unity</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Unity/UGUI/" class="category-chain-item">UGUI</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Unity/">#Unity</a>
+      
+        <a href="/tags/UGUI/">#UGUI</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Unity UI适配总结</div>
+      <div>https://hubenqi.github.io/2022/03/17/unity-ugui-adaptive/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Hubenqi</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月17日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/11/unity-nier-animtion-analyse/" title="Unity复刻尼尔：机械纪元-动作整理分析">
+                        <span class="hidden-mobile">Unity复刻尼尔：机械纪元-动作整理分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
