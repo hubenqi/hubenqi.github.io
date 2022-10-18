@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Blender3.0学习笔记-甜甜圈</title>
+    <link href="/2022/10/09/blender3.0-note01/"/>
+    <url>/2022/10/09/blender3.0-note01/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"/><p>教程地址：<a href="https://www.bilibili.com/video/BV1LS4y197SC?p=16&vd_source=c30cd6be1301104cd6c8745f7caa6f15">连接</a></p><h4 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h4><p>G：移动<br>按G，再按住鼠标中键——自动吸附在最靠近的坐标轴<br>G —— 抓取（此时鼠标右键或eSc会复原，发现似乎运动过程中右键就会复原）<br>按G，再按对应的轴（x、y、z）就会只对该轴操作<br>按G，再按住鼠标中键——自动吸附在最靠近的坐标轴<br>Alt + G：将任何当前选中的物体的位置属性吸附到三维视图中心。<br>S：缩放<br>Alt + S：延法线缩放<br>R：旋转<br>鼠标滚轮：放大或缩小<br>按住 &#96; ：出现数字热键<br>数字键盘上的 “ . （点）” ：聚焦对象（或者如下图，先选中物体，按 ~ 键，然后选择 view Selected）<br>按鼠标中键：移动物体视图<br>Shift + 空格：激活小菜单<br>Shift + 鼠标中键：移动整个视图<br>Shift + D：复制对象，D 代表 duplicate<br>Shift + A：添加菜单<br>N：属性窗口<br>Ctrl  + P：设置父子关系<br>切换全屏模式：Ctrl + Alt + 空格<br>Ctrl + Tab：切换到编辑、物体、雕刻、纹理绘制、顶点绘制、权重绘制等模式</p><h4 id="Modeling"><a href="#Modeling" class="headerlink" title="Modeling"></a>Modeling</h4><p>按Tab进入编辑模式<br>Ctrl + A：应用菜单<br>Shift + Z：进入透视模式<br>Shift + 空格：打开工具菜单<br>Z：着色模式<br>T：显示工具菜单<br>H：隐藏物体，Alt+H：还原<br>E：挤压<br>Ctrl + R：切割，鼠标滚轮调整数量<br>Ctrl+B：倒角<br>Alt + 左键：选择循环边，<br>O：打开衰减编辑，鼠标滚轮调整大小<br>选中任意一个点，按住 Ctrl  + L 就是去找所有 Linked 的点<br>Shift + S：游标操作菜单<br>Shift + 右键：可以随意放置游标<br>Shift + C：重置游标到世界坐标中心<br>Ctrl+J：合并模型<br>P：分离模型<br>Ctrl+M：镜像（反向翻转），按Ctrl+M后需要选择翻转轴向<br>Alt +N：反转法线</p><h4 id="雕刻Sculpt"><a href="#雕刻Sculpt" class="headerlink" title="雕刻Sculpt"></a>雕刻Sculpt</h4><p>F：画笔大小<br>Shift + F：画笔强度<br>抓取笔刷“G”，膨胀笔刷“ i ”，平滑笔刷“Shift”</p><h4 id="渲染RendeRinG："><a href="#渲染RendeRinG：" class="headerlink" title="渲染RendeRinG："></a>渲染RendeRinG：</h4><p>Ctrl +Alt+0：对齐摄像机至视图<br>F12：渲染<br>Eveen渲染：实时渲染<br>Cycle渲染：离线渲染器</p><h4 id="着色器ShadinG："><a href="#着色器ShadinG：" class="headerlink" title="着色器ShadinG："></a>着色器ShadinG：</h4><p>Ctrl +右键：切断节点<br>对一个节点按 Ctrl  + Shift 预览当前输出效果了，需要开启插件<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666057907352-251c33b6-0f6b-4d65-995a-a097e3fdf8cc.png#clientId=u052d2716-abb7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=86&id=ucffbadbb&margin=%5Bobject%20Object%5D&name=image.png&originHeight=86&originWidth=636&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6411&status=done&style=none&taskId=u52bf4944-c426-487f-ba49-e7e497a64d4&title=&width=636" alt="image.png"></p><h4 id="纹理TextuRe："><a href="#纹理TextuRe：" class="headerlink" title="纹理TextuRe："></a>纹理TextuRe：</h4><p>按F：画笔大小，Shift+F：画笔强度</p><h4 id="几何节点GeometRy-NodeS："><a href="#几何节点GeometRy-NodeS：" class="headerlink" title="几何节点GeometRy NodeS："></a>几何节点GeometRy NodeS：</h4><p>打组：Ctrl +G<br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666059890732-b7fc616a-bb33-486c-b2a5-977c8c9a0416.png#clientId=u052d2716-abb7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=961&id=ub1b6ce47&margin=%5Bobject%20Object%5D&name=image.png&originHeight=961&originWidth=1889&originalType=binary&ratio=1&rotation=0&showTitle=false&size=203215&status=done&style=none&taskId=ue5235567-94a0-4f24-bdb7-0aa2c063bc4&title=&width=1889" alt="image.png"></p><h4 id="动画Animation"><a href="#动画Animation" class="headerlink" title="动画Animation:"></a>动画Animation:</h4><p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666060261807-97dcaa14-a4ca-4d38-8762-18ebd17d8f0d.png#clientId=u052d2716-abb7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=1017&id=u385e7968&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1017&originWidth=1915&originalType=binary&ratio=1&rotation=0&showTitle=false&size=526455&status=done&style=none&taskId=u64c5e7dc-13e6-4c17-bfb8-0e7c9c7d1d9&title=&width=1915" alt="image.png"></p><h4 id="合成器CompoSitinG"><a href="#合成器CompoSitinG" class="headerlink" title="合成器CompoSitinG:"></a>合成器CompoSitinG:</h4><p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666060409294-98416714-3fa6-4b76-b556-54384c6f7613.png#clientId=u052d2716-abb7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=941&id=u7ab342d3&margin=%5Bobject%20Object%5D&name=image.png&originHeight=941&originWidth=1908&originalType=binary&ratio=1&rotation=0&showTitle=false&size=548787&status=done&style=none&taskId=u34646fc4-3895-4359-9596-868c92f85fa&title=&width=1908" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666060378840-a064131b-ed5f-4b43-ad91-2c486947b9f5.png#clientId=u052d2716-abb7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=814&id=uabeea3b7&margin=%5Bobject%20Object%5D&name=image.png&originHeight=814&originWidth=1878&originalType=binary&ratio=1&rotation=0&showTitle=false&size=203237&status=done&style=none&taskId=u3a47ed80-3ff6-4783-9425-bda44112488&title=&width=1878" alt="image.png"></p><h4 id="最后完成效果："><a href="#最后完成效果：" class="headerlink" title="最后完成效果："></a>最后完成效果：</h4><p><img src="https://cdn.nlark.com/yuque/0/2022/gif/21441051/1666063672112-e9058e94-b030-4e8b-bc22-44c44bea6659.gif#clientId=u052d2716-abb7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=576&id=uda975e5e&margin=%5Bobject%20Object%5D&name=cp8x4-2pkcn.gif&originHeight=576&originWidth=432&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5515252&status=done&style=none&taskId=udc18943d-05d9-49c9-9626-bb86a1b11ec&title=&width=432" alt="cp8x4-2pkcn.gif"></p><h4 id="快捷键总览："><a href="#快捷键总览：" class="headerlink" title="快捷键总览："></a>快捷键总览：</h4><p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/21441051/1666063859435-ef59d6cb-67b0-47ae-bbb9-c831f4fc3011.jpeg#clientId=u052d2716-abb7-4&crop=0&crop=0&crop=1&crop=1&from=ui&id=u434e994c&margin=%5Bobject%20Object%5D&name=Blender%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg&originHeight=6800&originWidth=10000&originalType=binary&ratio=1&rotation=0&showTitle=false&size=2808706&status=done&style=none&taskId=ubd10f1be-6652-477a-bb8f-f79c72375c6&title=" alt="Blender快捷键.jpg"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Blender</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Blender</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Unity UI适配总结</title>
     <link href="/2022/03/17/unity-ugui-adaptive/"/>
     <url>/2022/03/17/unity-ugui-adaptive/</url>
