@@ -1,0 +1,1085 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/headIcon.jpg">
+  <link rel="icon" href="/img/headIcon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hubenqi">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="《游戏设计艺术》读完后收益良多，相对系统全面的梳理了整个游戏开发过程。给出了非常多的设计准则和技巧，需要精读，未来应该还会多次翻阅。 第1章 太初之始，有设计师  游戏设计师需要的技能：动画、人类学、建筑学、头脑风暴、商业、电影制作方法、沟通、创意写作、经济学，工程学、玩游戏、历史、管理、数学、音乐、心理学、公开演讲、声音设计、技术写作、视觉艺术。 游戏设计师最重要的技能是倾听，倾听大致五种分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《游戏设计艺术》读书笔记">
+<meta property="og:url" content="https://hubenqi.github.io/2022/04/23/The%20Art%20of%20Game%20Design-note/index.html">
+<meta property="og:site_name" content="hubenqi">
+<meta property="og:description" content="《游戏设计艺术》读完后收益良多，相对系统全面的梳理了整个游戏开发过程。给出了非常多的设计准则和技巧，需要精读，未来应该还会多次翻阅。 第1章 太初之始，有设计师  游戏设计师需要的技能：动画、人类学、建筑学、头脑风暴、商业、电影制作方法、沟通、创意写作、经济学，工程学、玩游戏、历史、管理、数学、音乐、心理学、公开演讲、声音设计、技术写作、视觉艺术。 游戏设计师最重要的技能是倾听，倾听大致五种分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666074598115-eda3f194-7405-4100-a64f-af4e93815e1e.png#clientId=u1e29de4b-9b36-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=698&id=u4943819d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=698&originWidth=635&originalType=binary&ratio=1&rotation=0&showTitle=false&size=282344&status=done&style=none&taskId=u9a701fc5-533e-457c-b880-64e6623b50f&title=&width=635">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666087053743-01eda5a7-6804-4834-af1b-7b9081b16d21.png#clientId=u1e29de4b-9b36-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=410&id=u1bb1d921&margin=%5Bobject%20Object%5D&name=image.png&originHeight=749&originWidth=928&originalType=binary&ratio=1&rotation=0&showTitle=false&size=323323&status=done&style=none&taskId=u67fe852a-ce78-4790-b257-55188b47971&title=&width=508">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666142834923-14b3926e-2e6f-4beb-a2c9-acb6edf612a0.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=164&id=u2ce17e82&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=658&originalType=binary&ratio=1&rotation=0&showTitle=false&size=83970&status=done&style=none&taskId=u75b1d27b-0838-4862-af72-b33048c9955&title=&width=658">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666145054355-c6cfbdeb-c09d-419d-baa3-8d935d9d8490.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=206&id=udc858fda&margin=%5Bobject%20Object%5D&name=image.png&originHeight=289&originWidth=740&originalType=binary&ratio=1&rotation=0&showTitle=false&size=47011&status=done&style=none&taskId=u2b0f8085-c8ba-46d4-bb21-2f39958e917&title=&width=527">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666154135582-0a3ccc41-f32e-4b9a-a92d-82d4fee8a47c.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0.0594&crop=1&crop=1&from=paste&height=373&id=uf63be41a&margin=%5Bobject%20Object%5D&name=image.png&originHeight=587&originWidth=1166&originalType=binary&ratio=1&rotation=0&showTitle=false&size=254495&status=done&style=none&taskId=u1652b20c-4849-4120-ab25-d9ea04d8d89&title=&width=740">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666161761501-0ee4ae04-7c4c-4b20-a5ed-dd1bc8c3b544.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=341&id=u73d7d746&margin=%5Bobject%20Object%5D&name=image.png&originHeight=547&originWidth=859&originalType=binary&ratio=1&rotation=0&showTitle=false&size=373050&status=done&style=none&taskId=u237ae615-36e4-4aaf-9a36-8ebf459284e&title=&width=536">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666162219665-80dd5881-627b-4e18-8d9a-36f78f4e2b48.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=137&id=u4fc4032b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=751&originalType=binary&ratio=1&rotation=0&showTitle=false&size=99660&status=done&style=none&taskId=u8dfe295d-a84d-4242-a9a7-05aba3e83be&title=&width=635">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666162926289-87b99191-dbda-4566-92a0-42bc7273f327.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=269&id=u0323088b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=366&originWidth=798&originalType=binary&ratio=1&rotation=0&showTitle=false&size=228020&status=done&style=none&taskId=u9d861051-3815-4094-90c3-fb666734dfd&title=&width=587">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163544760-39d93dac-b04a-41a0-b576-0be4b546ff17.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=276&id=ubce515e6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=360&originWidth=792&originalType=binary&ratio=1&rotation=0&showTitle=false&size=227168&status=done&style=none&taskId=u3ef15978-a977-4607-813b-f75c38876f7&title=&width=608">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163614618-92fd1ad2-4e33-407a-90f8-0e25a577a948.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=465&id=u929c9dbe&margin=%5Bobject%20Object%5D&name=image.png&originHeight=605&originWidth=789&originalType=binary&ratio=1&rotation=0&showTitle=false&size=437735&status=done&style=none&taskId=u505e157e-4056-4a16-b7f4-49e223856a8&title=&width=607">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163791304-60b2d1d8-f565-424e-a06d-5798e5a84f44.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=272&id=uf916dd52&margin=%5Bobject%20Object%5D&name=image.png&originHeight=355&originWidth=791&originalType=binary&ratio=1&rotation=0&showTitle=false&size=232127&status=done&style=none&taskId=ucd23d896-8336-4e60-8d5c-543884ad8b4&title=&width=607">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163820461-592d8249-3ffa-4372-963a-a1b6923dc0a3.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=388&id=u31780e9c&margin=%5Bobject%20Object%5D&name=image.png&originHeight=499&originWidth=788&originalType=binary&ratio=1&rotation=0&showTitle=false&size=359199&status=done&style=none&taskId=u249827a7-10a8-4cf2-8119-92eab811838&title=&width=612">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666169606338-7818851e-780e-4720-b043-e8f7a5724fbb.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=194&id=u5adf0492&margin=%5Bobject%20Object%5D&name=image.png&originHeight=250&originWidth=790&originalType=binary&ratio=1&rotation=0&showTitle=false&size=196752&status=done&style=none&taskId=u532f5696-2eb6-4200-9335-b34d7d81954&title=&width=612">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666169621433-67009b56-2c07-49e4-a931-3cf003b017ee.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=261&id=u6772d533&margin=%5Bobject%20Object%5D&name=image.png&originHeight=336&originWidth=787&originalType=binary&ratio=1&rotation=0&showTitle=false&size=290822&status=done&style=none&taskId=u0af75db1-19a8-458f-8d4c-c2c0f069727&title=&width=612">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666170151260-3e428366-d2b4-47f3-a990-839f4b83f92e.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=249&id=uc689b7f6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=322&originWidth=790&originalType=binary&ratio=1&rotation=0&showTitle=false&size=211225&status=done&style=none&taskId=u29f200d5-2f8f-40b7-a783-e4598ee8f51&title=&width=612">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666177246000-8900e24f-8930-40f9-b87a-5fffbba2bd15.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=770&id=ud6b936ee&margin=%5Bobject%20Object%5D&name=image.png&originHeight=770&originWidth=836&originalType=binary&ratio=1&rotation=0&showTitle=false&size=368077&status=done&style=none&taskId=u1d09d4cc-df5f-4fdd-bba1-2ab88193511&title=&width=836">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230144418-11bfc44b-03b1-4022-b356-aa2b7267c325.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=213&id=ub3824345&margin=%5Bobject%20Object%5D&name=image.png&originHeight=213&originWidth=793&originalType=binary&ratio=1&rotation=0&showTitle=false&size=140297&status=done&style=none&taskId=u8091ff6f-ab73-4e0d-a31b-b6cb456391a&title=&width=793">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230252952-c8e55241-4f18-4e9f-9ca3-94a567b11bcc.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=137&id=ub212889f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=137&originWidth=789&originalType=binary&ratio=1&rotation=0&showTitle=false&size=86588&status=done&style=none&taskId=ua3c62981-1f14-4820-9e9e-d87ff07548b&title=&width=789">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230299706-929c6f2c-3d06-40f3-be76-f010cc8a09ef.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=133&id=u4c9de697&margin=%5Bobject%20Object%5D&name=image.png&originHeight=133&originWidth=784&originalType=binary&ratio=1&rotation=0&showTitle=false&size=85891&status=done&style=none&taskId=u28b8c6c7-0a22-4048-be01-4b531fb2985&title=&width=784">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230325882-dd2c6920-7500-4135-a20a-15d7f7cfe31f.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=229&id=u2d6eade1&margin=%5Bobject%20Object%5D&name=image.png&originHeight=229&originWidth=800&originalType=binary&ratio=1&rotation=0&showTitle=false&size=142871&status=done&style=none&taskId=u689d3a42-dff0-4f0b-87ea-70d14dd2cbb&title=&width=800">
+<meta property="article:published_time" content="2022-04-23T13:20:00.000Z">
+<meta property="article:modified_time" content="2022-10-20T02:42:45.855Z">
+<meta property="article:author" content="Hubenqi">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666074598115-eda3f194-7405-4100-a64f-af4e93815e1e.png#clientId=u1e29de4b-9b36-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=698&id=u4943819d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=698&originWidth=635&originalType=binary&ratio=1&rotation=0&showTitle=false&size=282344&status=done&style=none&taskId=u9a701fc5-533e-457c-b880-64e6623b50f&title=&width=635">
+  
+  
+  <title>《游戏设计艺术》读书笔记 - hubenqi</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"hubenqi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Hubenqi Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/nier05.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="《游戏设计艺术》读书笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-23 21:20" pubdate>
+          2022年4月23日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          59 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《游戏设计艺术》读书笔记</h1>
+            
+            <div class="markdown-body">
+              
+              <meta name="referrer" content="no-referrer"/>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666074598115-eda3f194-7405-4100-a64f-af4e93815e1e.png#clientId=u1e29de4b-9b36-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=698&id=u4943819d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=698&originWidth=635&originalType=binary&ratio=1&rotation=0&showTitle=false&size=282344&status=done&style=none&taskId=u9a701fc5-533e-457c-b880-64e6623b50f&title=&width=635" srcset="/img/loading.gif" lazyload alt="image.png"><br>《游戏设计艺术》读完后收益良多，相对系统全面的梳理了整个游戏开发过程。给出了非常多的设计准则和技巧，需要精读，未来应该还会多次翻阅。</p>
+<h3 id="第1章-太初之始，有设计师"><a href="#第1章-太初之始，有设计师" class="headerlink" title="第1章 太初之始，有设计师"></a>第1章 太初之始，有设计师</h3><blockquote>
+<ul>
+<li>游戏设计师需要的技能：动画、人类学、建筑学、头脑风暴、商业、电影制作方法、沟通、创意写作、经济学，工程学、玩游戏、历史、管理、数学、音乐、心理学、公开演讲、声音设计、技术写作、视觉艺术。</li>
+<li>游戏设计师最重要的技能是倾听，倾听大致五种分类：团队、受众、游戏、客户、自己。</li>
+</ul>
+</blockquote>
+<h3 id="第2章-设计师创造体验"><a href="#第2章-设计师创造体验" class="headerlink" title="第2章 设计师创造体验"></a>第2章 设计师创造体验</h3><blockquote>
+<ul>
+<li><strong>游戏不等于体验，游戏能够带来体验，但是它并不是体验本身。</strong></li>
+<li><strong>体验三种途径：</strong>心理学、人类学、设计学。</li>
+<li><strong>自己的体验不一定适用于其他人。</strong></li>
+<li>一个优秀的游戏不需要你完美复制真实的体验。你需要做的是为你的游戏找出这种体验的精髓。</li>
+</ul>
+</blockquote>
+<h3 id="第3章-体验发生于场景"><a href="#第3章-体验发生于场景" class="headerlink" title="第3章 体验发生于场景"></a>第3章 体验发生于场景</h3><blockquote>
+<ul>
+<li><strong>私人场景</strong>：炉边、工作台、读书角。</li>
+<li><strong>公共场合</strong>：剧场、竞技场、博物馆。</li>
+<li><strong>半公开&#x2F;半私人场景：</strong>游戏桌、操场、随时随地。</li>
+</ul>
+</blockquote>
+<h3 id="第4章-体验从游戏中诞生"><a href="#第4章-体验从游戏中诞生" class="headerlink" title="第4章 体验从游戏中诞生"></a>第4章 体验从游戏中诞生</h3><blockquote>
+<ul>
+<li><strong>游戏特质</strong>：完全自主的、有目标、有冲突、有输赢、有规则、可交互的、有挑战性、能够创造它自己的内在价值、能吸引玩家、封闭的正式系统。</li>
+<li>快乐是一种带有惊喜的满足感、玩耍是一种满足好奇心的行为、玩具是你玩耍的对象、优秀的玩具是一个能够带来乐趣的物品、游戏是一种以嬉戏的态度进行的解决问题的活动。</li>
+</ul>
+</blockquote>
+<h3 id="第5章-游戏由元素构成"><a href="#第5章-游戏由元素构成" class="headerlink" title="第5章 游戏由元素构成"></a>第5章 游戏由元素构成</h3><blockquote>
+<ul>
+<li>四种基本元素：<ul>
+<li><strong>机制：</strong>游戏中的过程和规则。</li>
+<li><strong>故事：</strong>游戏中事件展开的顺序。</li>
+<li><strong>美学：</strong>游戏中外观，声音，气味，味道和感觉。</li>
+<li><strong>技术：</strong>游戏中使用的技术。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666087053743-01eda5a7-6804-4834-af1b-7b9081b16d21.png#clientId=u1e29de4b-9b36-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=410&id=u1bb1d921&margin=%5Bobject%20Object%5D&name=image.png&originHeight=749&originWidth=928&originalType=binary&ratio=1&rotation=0&showTitle=false&size=323323&status=done&style=none&taskId=u67fe852a-ce78-4790-b257-55188b47971&title=&width=508" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="第6章-元素支撑起主题"><a href="#第6章-元素支撑起主题" class="headerlink" title="第6章 元素支撑起主题"></a>第6章 元素支撑起主题</h3><blockquote>
+<ul>
+<li><strong>统一主题：</strong>确定你的主题是什么、采用所有可能的方法来强化这个主题。</li>
+<li>最好的主题能够引起玩家的<strong>共鸣</strong>——这些主题能够碰到玩家的内心深处。</li>
+</ul>
+</blockquote>
+<h3 id="第7章-游戏始于一个创意"><a href="#第7章-游戏始于一个创意" class="headerlink" title="第7章 游戏始于一个创意"></a>第7章 游戏始于一个创意</h3><blockquote>
+<ul>
+<li><strong>设计游戏的方法：</strong><ol>
+<li>想出一个创意。</li>
+<li>尝试制作出来。</li>
+<li>不断测试和改进，直到它看起来不错为止。</li>
+</ol>
+</li>
+<li><strong>无尽灵感</strong>：四个不同元素(技术，机制。故事和美学)能够被一个单纯的灵感组合起来，也能构筑不同的灵感，你应该将它们混合起来创造一些崭新的游戏。</li>
+<li><strong>清晰的陈述问题将带来三项优势</strong>：更广阔的创造空间、更清晰的评估、更顺畅的交流。</li>
+<li>睡眠是产生创意的重要组成部分，某种层面上，潜意识就是我们的一部分。</li>
+<li><strong>潜意识建议</strong>：给予关注、记录你的创意、满足它的欲望、睡眠、尽力而为。</li>
+<li><strong>头脑风暴建议：</strong>记下答案、写字&#x2F;打字、草图、玩具、改变视角、沉浸自己、开几个玩笑、不要节约、写在墙上、空间记忆、记下所有东西、为清单计数、颠覆你的设定、组合和搭配分类、自言自语、找一个搭档。</li>
+</ul>
+</blockquote>
+<h3 id="第8章-游戏通过迭代提高"><a href="#第8章-游戏通过迭代提高" class="headerlink" title="第8章 游戏通过迭代提高"></a>第8章 游戏通过迭代提高</h3><blockquote>
+<ul>
+<li><strong>你的设计必须满足许多约束条件。</strong>只有当它通过了八项测试而不需要修改时，你的设计才算完成。<ul>
+<li><strong>八项测试：</strong><ul>
+<li>你的游戏看起来不错吗？</li>
+<li>我们的目标受众喜欢这个游戏吗？</li>
+<li>这个游戏设计得不错吗？</li>
+<li>这个游戏是否与众不同？</li>
+<li>这个游戏能盈利吗？</li>
+<li>游戏在技术上是否具备可行性？</li>
+<li>这个游戏完成我们的社交或者社区目标了吗？</li>
+<li>游戏测试者是否享受这个游戏？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>迭代规则：</strong>瀑布模型、螺旋模型、敏捷开发。</li>
+<li><strong>风险评估：</strong>是什么让这个游戏变的平庸？我们怎么样    防止这样的风险发生？风险管理很难。这意味着你必须面对那些不想碰到和立刻解决的问题。但是如果训练自己这么做，就能进行更多次有效的迭代，获得一个更优秀的游戏。忽视潜在的问题，只专注于游戏中你最有信心的部分是一种诱惑。你必须抵抗这种诱惑，专注于游戏中的风险。</li>
+<li><strong>制作有效原型的10个技巧：</strong><ul>
+<li>回答问题<img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666142834923-14b3926e-2e6f-4beb-a2c9-acb6edf612a0.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=164&id=u2ce17e82&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=658&originalType=binary&ratio=1&rotation=0&showTitle=false&size=83970&status=done&style=none&taskId=u75b1d27b-0838-4862-af72-b33048c9955&title=&width=658" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+<li><strong>忘记质量：</strong>制作一个原型时，我们唯一关心的就是它能否解决问题。它能解决的越快这个原型就越好，打磨原型甚至有害处。</li>
+<li><strong>不要太过留恋：</strong>第一版系统肯定不是一个完整的产品，而是一个构建出正确地系统之后就会丢弃的原型。</li>
+<li><strong>区分原型的优先级</strong></li>
+<li><strong>有效的并行原型</strong></li>
+<li><strong>并不总需要数字化</strong></li>
+<li><strong>无须交互</strong></li>
+<li><strong>选择一个“快速迭代”的游戏引擎</strong></li>
+<li><strong>先构建玩具</strong></li>
+<li><strong>抓住更多的迭代的机会</strong></li>
+</ul>
+</li>
+<li><strong>非正式迭代：</strong>1、想出一个创意。2、试验它。3、测试和改进它直到变得足够好为止。</li>
+<li><strong>正式迭代：</strong>1、描述一个问题。2、用头脑风暴的方式找到几种可能的解决方案、3、选择一个解决方案。4、列出使用这种解决方案的风险。5、构建原型来消除这些风险。6、测试原型，直到足够好为止。7、描述一个新的你想要解决的问题，然后回到第二步。</li>
+<li><strong>多少次迭代才足够：50%法则</strong><ul>
+<li>50%法则的前半部分：如果你50%的预算被消减 ，你依然能够有一个可玩的游戏。</li>
+<li>50%法则的后半部分：所有核心玩法元素都应该在规划中的前半部分完成。</li>
+</ul>
+</li>
+<li><strong>你的秘密燃料：激情</strong></li>
+</ul>
+</blockquote>
+<h3 id="第9章-游戏为玩家而生"><a href="#第9章-游戏为玩家而生" class="headerlink" title="第9章 游戏为玩家而生"></a>第9章 游戏为玩家而生</h3><blockquote>
+<ul>
+<li>你必须学会深入而彻底地倾听你的玩家。你必须熟悉他们的想法，情感，恐惧和欲望。其中的一些过于隐秘，玩家们可能自己都没有察觉到。深度倾听的最好的方法之一就是使用移情。</li>
+<li><strong>男性玩家喜欢在游戏中看到的五件事：</strong>掌握、竞争、破坏、空间谜题、试错。</li>
+<li><strong>女性玩家喜欢在游戏中看到的五件事</strong>：情感、现实世界、照料、对话与字谜、通过例子学习。</li>
+<li><strong>游戏乐趣分类</strong>：感官、幻想、叙事、挑战、团队关系、探索、表达、服从。</li>
+<li><strong>玩家分类：</strong>成功者、探索者、社交者、杀手。<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666145054355-c6cfbdeb-c09d-419d-baa3-8d935d9d8490.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=206&id=udc858fda&margin=%5Bobject%20Object%5D&name=image.png&originHeight=289&originWidth=740&originalType=binary&ratio=1&rotation=0&showTitle=false&size=47011&status=done&style=none&taskId=u2b0f8085-c8ba-46d4-bb21-2f39958e917&title=&width=527" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</li>
+<li><strong>更多的乐趣：</strong>预感、完成、幸灾乐祸、赠与礼物、幽默感、可能性、成就的自豪感、惊喜、激动、战胜逆境、难以置信。</li>
+</ul>
+</blockquote>
+<h3 id="第10章-体验在玩家脑中"><a href="#第10章-体验在玩家脑中" class="headerlink" title="第10章 体验在玩家脑中"></a>第10章 体验在玩家脑中</h3><blockquote>
+<ul>
+<li>四项主要心理能力令玩游戏成为可能：建模、专注、想象、共情。</li>
+<li><strong>建模</strong>：将复杂的现实浓缩简化成精神模型，以简化记忆，思考，处理。让思维可以驾驭。身为游戏设计师，一定要对这些精神模型多加关注。每个游戏都有一套简单的规则，是预先简化过的模型，让人能轻松消化，处理。我们体验和思考的的一切都是模型——而不是现实。</li>
+<li><strong>专注：</strong>持续专注、快乐、享受的状态被称为“心流”。想要在活动中令玩家进入心流状态，要达成以下关键点：目标清晰、没有干扰、反馈直接、持续挑战。</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666154135582-0a3ccc41-f32e-4b9a-a92d-82d4fee8a47c.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0.0594&crop=1&crop=1&from=paste&height=373&id=uf63be41a&margin=%5Bobject%20Object%5D&name=image.png&originHeight=587&originWidth=1166&originalType=binary&ratio=1&rotation=0&showTitle=false&size=254495&status=done&style=none&taskId=u1652b20c-4849-4120-ab25-d9ea04d8d89&title=&width=740" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<ul>
+<li><strong>共情：</strong>人类有一种惊人的能力，可将自己投射到他人的立场上去。看到别人开心，我们似可感受切身之喜。看到别人伤心，我们也悲于切身之痛。游戏设计要与小说家、画家、电影制作人一样运用共情。而且，游戏里所投射到人物身上的，不仅仅是情感，还是所有决策能力。其他无法互动的媒体形式就做不到这点。</li>
+<li><strong>想象：</strong>想象力，把游戏带入玩家内，把玩家带入游戏。想象力有两个重要功能：第一是交流(一般用于讲故事)、第二是解决问题。由于游戏中，两者明显皆为主要，游戏设计师必须理解怎么让玩家的想象力助力故事，还要清楚想象力能解决，不能解决的问题。</li>
+</ul>
+</blockquote>
+<h3 id="第11章-玩家的动机驱使着玩家的脑"><a href="#第11章-玩家的动机驱使着玩家的脑" class="headerlink" title="第11章 玩家的动机驱使着玩家的脑"></a>第11章 玩家的动机驱使着玩家的脑</h3><blockquote>
+<ul>
+<li><strong>游戏根本不重要</strong>：这是一个残酷的事实。在生命的大格局里面，玩游戏的时间总可以用来干点更重要的事情。玩游戏过程中有东西驱策着我们，让我们把本来微不足道的小事当做生死之攸关，此所谓动机之魔力。</li>
+<li><strong>马斯洛的需求层次：</strong>基础概念是，若低层次需求没有满足，人就不会去追求高层次需求。</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666161761501-0ee4ae04-7c4c-4b20-a5ed-dd1bc8c3b544.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=341&id=u73d7d746&margin=%5Bobject%20Object%5D&name=image.png&originHeight=547&originWidth=859&originalType=binary&ratio=1&rotation=0&showTitle=false&size=373050&status=done&style=none&taskId=u237ae615-36e4-4aaf-9a36-8ebf459284e&title=&width=536" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<ul>
+<li><strong>三大精神需求：</strong><ul>
+<li>胜任：我需要觉得自己擅长做些什么。</li>
+<li>自主：我需要按自己的方式做事的自由。</li>
+<li>关联：我需要和其他人建立联系。</li>
+</ul>
+</li>
+<li><strong>内在动机、外在动机：</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666162219665-80dd5881-627b-4e18-8d9a-36f78f4e2b48.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=137&id=u4fc4032b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=751&originalType=binary&ratio=1&rotation=0&showTitle=false&size=99660&status=done&style=none&taskId=u8dfe295d-a84d-4242-a9a7-05aba3e83be&title=&width=635" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<ul>
+<li><strong>创新：</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666162926289-87b99191-dbda-4566-92a0-42bc7273f327.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=269&id=u0323088b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=366&originWidth=798&originalType=binary&ratio=1&rotation=0&showTitle=false&size=228020&status=done&style=none&taskId=u9d861051-3815-4094-90c3-fb666734dfd&title=&width=587" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="第12章-有些元素是游戏机制"><a href="#第12章-有些元素是游戏机制" class="headerlink" title="第12章 有些元素是游戏机制"></a>第12章 有些元素是游戏机制</h3><blockquote>
+<ul>
+<li><strong>游戏机制是游戏的真正的核心。剥离美学，技术和故事后，剩下的互动和关系，就是游戏机制。</strong></li>
+<li><strong>游戏机制的7大类</strong><ul>
+<li><strong>空间：</strong>1、是离散或连续。2、具有一定数量的维度。3、具有连接或不连接的有界区域。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163544760-39d93dac-b04a-41a0-b576-0be4b546ff17.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=276&id=ubce515e6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=360&originWidth=792&originalType=binary&ratio=1&rotation=0&showTitle=false&size=227168&status=done&style=none&taskId=u3ef15978-a977-4607-813b-f75c38876f7&title=&width=608" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<ul>
+<li><strong>时间：</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163614618-92fd1ad2-4e33-407a-90f8-0e25a577a948.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=465&id=u929c9dbe&margin=%5Bobject%20Object%5D&name=image.png&originHeight=605&originWidth=789&originalType=binary&ratio=1&rotation=0&showTitle=false&size=437735&status=done&style=none&taskId=u505e157e-4056-4a16-b7f4-49e223856a8&title=&width=607" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<ul>
+<li><strong>对象，属性和状态：</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163791304-60b2d1d8-f565-424e-a06d-5798e5a84f44.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=272&id=uf916dd52&margin=%5Bobject%20Object%5D&name=image.png&originHeight=355&originWidth=791&originalType=binary&ratio=1&rotation=0&showTitle=false&size=232127&status=done&style=none&taskId=ucd23d896-8336-4e60-8d5c-543884ad8b4&title=&width=607" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666163820461-592d8249-3ffa-4372-963a-a1b6923dc0a3.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=388&id=u31780e9c&margin=%5Bobject%20Object%5D&name=image.png&originHeight=499&originWidth=788&originalType=binary&ratio=1&rotation=0&showTitle=false&size=359199&status=done&style=none&taskId=u249827a7-10a8-4cf2-8119-92eab811838&title=&width=612" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<ul>
+<li><strong>行动：</strong>第一种是基本行动。第二种是策略行动。</li>
+<li><strong>规则：</strong>规则是最基础的机制。不是规则定义了游戏，游戏即其规则。从规则的角度观察自己的游戏，非常重要。</li>
+<li><strong>技巧：</strong>技巧大致分成三类：1.身体技巧。2.心智技巧。3.设计技巧。</li>
+<li><strong>概率：</strong>概率意味着不确定性，而不确定性意味着惊喜。</li>
+</ul>
+</blockquote>
+<h3 id="第13章-游戏机制必须平衡"><a href="#第13章-游戏机制必须平衡" class="headerlink" title="第13章 游戏机制必须平衡"></a>第13章 游戏机制必须平衡</h3><blockquote>
+<ul>
+<li><strong>十二种最常见的游戏平衡：</strong><ul>
+<li>1.公平</li>
+<li>2.挑战与成功</li>
+<li>3.有意义的选择</li>
+<li>4.技巧与概率</li>
+<li>5.头与手</li>
+<li>6.竞争与合作</li>
+<li>7.短与长</li>
+<li>8.奖赏</li>
+<li>9.惩罚</li>
+<li>10.自由体验与受控体验</li>
+<li>11.简单与复杂</li>
+<li>12.细节与想象</li>
+</ul>
+</li>
+<li><strong>游戏平衡方法论：</strong>使用问题陈述透镜、加倍与减半、通过精确猜测训练你的直觉、记录你的模型、调整游戏的同时调整模型、计划好平衡、交给玩家。</li>
+<li><strong>平衡游戏中的经济：</strong>从控制游戏本身创造多少钱。到控制不同的赚钱和花钱途径。但平衡游戏经济的目标与平衡其他游戏机制一样–确保玩家能够享受一款快乐又有挑战性的游戏。</li>
+</ul>
+</blockquote>
+<h3 id="第14章-游戏机制支持谜题"><a href="#第14章-游戏机制支持谜题" class="headerlink" title="第14章 游戏机制支持谜题"></a>第14章 游戏机制支持谜题</h3><blockquote>
+<ul>
+<li>谜题是极好的机制，它创造了许多游戏的核心部分。有时候它是可见的，更多时候它们深藏于玩法之中以至于难以被发现。但所有的谜题都有一个共同点：让玩家停下来并陷入思考之中。</li>
+<li><strong>谜题原则：</strong>让目标变得简单易懂、让他容易上手、给予进步感、给予可解决感、逐步增加难度、平行性让玩家休息、金字塔结构会延长兴趣、提示会延长兴趣、给出答案、赶制转移是把双刃剑。</li>
+</ul>
+</blockquote>
+<h3 id="第15章-玩家通过界面玩游戏"><a href="#第15章-玩家通过界面玩游戏" class="headerlink" title="第15章 玩家通过界面玩游戏"></a>第15章 玩家通过界面玩游戏</h3><blockquote>
+<ul>
+<li><strong>制作优秀游戏界面的常用建议：</strong>偷窃、定制、围绕你的物理界面设计、主体化你的界面、将声音映射到触摸、用层级平衡选项和简单度、使用隐喻、如果它们看上去不同，它的行为也应该不同、测试，测试，测试、打破不能帮助玩家的法则。</li>
+</ul>
+</blockquote>
+<h3 id="第16章-体验可以用它们的兴趣曲线来评价"><a href="#第16章-体验可以用它们的兴趣曲线来评价" class="headerlink" title="第16章 体验可以用它们的兴趣曲线来评价"></a>第16章 体验可以用它们的兴趣曲线来评价</h3><blockquote>
+<ul>
+<li><strong>兴趣曲线：</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666169606338-7818851e-780e-4720-b043-e8f7a5724fbb.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=194&id=u5adf0492&margin=%5Bobject%20Object%5D&name=image.png&originHeight=250&originWidth=790&originalType=binary&ratio=1&rotation=0&showTitle=false&size=196752&status=done&style=none&taskId=u532f5696-2eb6-4200-9335-b34d7d81954&title=&width=612" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666169621433-67009b56-2c07-49e4-a931-3cf003b017ee.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=261&id=u6772d533&margin=%5Bobject%20Object%5D&name=image.png&originHeight=336&originWidth=787&originalType=binary&ratio=1&rotation=0&showTitle=false&size=290822&status=done&style=none&taskId=u0af75db1-19a8-458f-8d4c-c2c0f069727&title=&width=612" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<ul>
+<li><strong>兴趣的组成：</strong>内在兴趣、演出的诗歌艺术、投影。</li>
+</ul>
+</blockquote>
+<h3 id="第17章-有种体验叫故事"><a href="#第17章-有种体验叫故事" class="headerlink" title="第17章 有种体验叫故事"></a>第17章 有种体验叫故事</h3><blockquote>
+<ul>
+<li><strong>给游戏设计师的故事秘诀：</strong><ul>
+<li><strong>目标，冲突和障碍：</strong>当人物尝试克服障碍时，有趣的矛盾就会产生，特别是当另外的角色拥有一个冲突的目标时。</li>
+<li><strong>做到真实：</strong>如果它对你来说不像真的，那对他们来说也一样</li>
+<li><strong>提供简单和超越</strong></li>
+<li><strong>参考英雄的旅程</strong></li>
+<li><strong>开始使用你的故事</strong></li>
+<li><strong>保持你故事世界的一致性</strong></li>
+<li><strong>让你的故事世界平易近人</strong></li>
+<li><strong>明智地使用陈词滥调</strong></li>
+<li><strong>有时一张地图能让故事活过来</strong></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666170151260-3e428366-d2b4-47f3-a990-839f4b83f92e.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=249&id=uc689b7f6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=322&originWidth=790&originalType=binary&ratio=1&rotation=0&showTitle=false&size=211225&status=done&style=none&taskId=u29f200d5-2f8f-40b7-a783-e4598ee8f51&title=&width=612" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="第18章-故事和游戏结构可以用间接控制艺术性地融为一体"><a href="#第18章-故事和游戏结构可以用间接控制艺术性地融为一体" class="headerlink" title="第18章 故事和游戏结构可以用间接控制艺术性地融为一体"></a>第18章 故事和游戏结构可以用间接控制艺术性地融为一体</h3><blockquote>
+<ul>
+<li><strong>游戏和互动体验的精彩之处在于玩家感受到的自由。我们无须总是给予忘记真正的自由——我们只要给予他们自由感。</strong></li>
+<li><strong>间接控制的几种方法：</strong><ul>
+<li><strong>限制：</strong>通过限制他们的选择，让他们更有可能会做出一个选择。但不只是任何选择–而是我指引他们去往的选择。即使我用狡猾的方法限制了他们的选择，他们依然会保留自由感而且可能感觉到一种加强的自由感。因为提供给他们的选择比我完全没有指引他们时更清晰。</li>
+<li><strong>目标：</strong>游戏设计中最常见也是最直接的是通过目标实现间接控制。</li>
+<li><strong>界面：</strong>玩家基于界面建立起他们在游戏中能干什么不能干什么的预期。</li>
+<li><strong>视觉设计：</strong>布局会影响玩家的视线。在互动游戏中它变得尤其非常重要。要设计好的关卡，其中一个要点是玩家的眼睛就能将他们毫不费力地带过关卡。这个会让玩家感觉掌控自如并且自身沉浸在世界中。</li>
+<li><strong>角色：</strong>角色可以是控制玩家选择或他们如何感受那些选择的一个好方法。但是首先，必须让玩家关心那些虚拟角色的感受，一旦做到这点，去鼓舞玩家的行动就简单了，因为希望帮助那些我们同情的人是人类天性中的一个伟大方面。</li>
+<li><strong>音乐：</strong>音乐是灵魂的语言，正因如此它是一个深层次对玩家的倾诉——一个可以改变他们心情，欲望和行为的层次。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="第19章-在世界里发生的故事与游戏"><a href="#第19章-在世界里发生的故事与游戏" class="headerlink" title="第19章 在世界里发生的故事与游戏"></a>第19章 在世界里发生的故事与游戏</h3><blockquote>
+<ul>
+<li><strong>跨媒体世界的特性：</strong>强而有力的跨媒体世界、经久不衰的跨媒体世界、不断进化的跨媒体世界。</li>
+<li><strong>成功的跨媒体世界共同点：</strong>它们常常扎根在一个单一的媒体里、它们很直观、它们的核心是富有创造力的个人、它们适合讲多个故事、它们可以通过任意一个入口去理解。</li>
+</ul>
+</blockquote>
+<h3 id="第20章-世界中的角色"><a href="#第20章-世界中的角色" class="headerlink" title="第20章 世界中的角色"></a>第20章 世界中的角色</h3><blockquote>
+<ul>
+<li><strong>创造角色最有用的方法：</strong><ul>
+<li>列出角色的功能</li>
+<li>定义并运用角色的特征</li>
+<li>运用人际关系环状图</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666177246000-8900e24f-8930-40f9-b87a-5fffbba2bd15.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=770&id=ud6b936ee&margin=%5Bobject%20Object%5D&name=image.png&originHeight=770&originWidth=836&originalType=binary&ratio=1&rotation=0&showTitle=false&size=368077&status=done&style=none&taskId=u1d09d4cc-df5f-4fdd-bba1-2ab88193511&title=&width=836" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<blockquote>
+<ul>
+<li>创建一个角色网络</li>
+<li>运用’地位’</li>
+<li>运用语音的力量</li>
+<li>运用面部的力量</li>
+<li>有力的故事能够改变角色</li>
+<li>让你的角色出人意料</li>
+<li>避免恐怖谷</li>
+</ul>
+</blockquote>
+<h3 id="第21章-世界里的空间"><a href="#第21章-世界里的空间" class="headerlink" title="第21章 世界里的空间"></a>第21章 世界里的空间</h3><blockquote>
+<ul>
+<li><strong>空间整理方式：</strong>线性、网格、网络、空间内的点、分割空间。</li>
+<li><strong>那些会带来难以名状体验的事物往往会有如下特点：</strong>感觉起来是活的(拥有某种能量)，完整的，舒服的(愉快)，自由的(天生没有限制)，确切的(本该如此)，无我的(与整个宇宙相连)，永恒的，没有任何内在矛盾。</li>
+<li><strong>生动结构的15项特性：</strong>缩放级别(先完成短期目标，才能完成中期目标，最后达到长期目标)，强力中心(化身处在故事宇宙的中心)，边际(规则同样是一种边际)，交替重复，正空间(多种交替策略间产生一种连锁的美感)、好的形状、本地对称、深度连锁与歧义(两种东西只能通过对方来定义自己)，对比，渐变，粗糙感(手工质感往往会让一个游戏变得更活灵活现)，回声(一种令人愉悦且统一的重复)，空虚，简单与内在平静，不分离性(某些东西能够与周围事物紧密联系在一起)。</li>
+</ul>
+</blockquote>
+<h3 id="第22章-世界的外观与感觉是由其美学所定义的"><a href="#第22章-世界的外观与感觉是由其美学所定义的" class="headerlink" title="第22章 世界的外观与感觉是由其美学所定义的"></a>第22章 世界的外观与感觉是由其美学所定义的</h3><blockquote>
+<ul>
+<li><strong>美学的价值：</strong>将玩家吸引到本可能错过的游戏中去；让游戏世界感觉更紧凑，宏大，提升内源性价值；美学能带来愉悦；有力的游戏世界会有一种’氛围’，是由画面，声音，音乐及游戏机制共同产生出来的；如果有美丽的画面，玩家可能会容忍你在游戏设计方面的不足。</li>
+<li>如果你没有美术天赋，在画画的时候一点头绪都没有，在这种情况下，最好的弥补方案就是找到一位有艺术细胞的伙伴。一个好主意也只在理论上优秀。但一幅精心制作的图片所传达出的想法，是很少有人能抵抗其魅力的。</li>
+<li>有力的游戏设计加上优秀的概念艺术将会<strong>：把你的想法清楚地传达给每一个人；把你的世界展示给别人；并且让他们在想象中进入你的世界；让人们对于能玩到你的游戏感到很兴奋；能够确保开发资金以及其他用以开发的资源。</strong></li>
+</ul>
+</blockquote>
+<h3 id="第23章-一些游戏让多人同乐"><a href="#第23章-一些游戏让多人同乐" class="headerlink" title="第23章 一些游戏让多人同乐"></a>第23章 一些游戏让多人同乐</h3><blockquote>
+<ul>
+<li>人类是社会性动物。一旦有可能，人类就会避免独处的状态。我们并不喜欢一个人进餐，入睡，工作，娱乐。但人也有时候会希望独处一段时间–阅读书籍，锻炼，冥想及玩填字游戏都是令人愉快的独处时光。但比起独自一人，人类更倾向于与他人共度时光</li>
+<li>与他人游戏的原因：竞争，会面，了解朋友，了解自己</li>
+</ul>
+</blockquote>
+<h3 id="第24章-其他玩家有时候会形成社群"><a href="#第24章-其他玩家有时候会形成社群" class="headerlink" title="第24章 其他玩家有时候会形成社群"></a>第24章 其他玩家有时候会形成社群</h3><blockquote>
+<ul>
+<li><strong>为什么要组成社群：</strong>成为社群的一员满足了部分社交需求；更长的“传染周期”；更长的游戏时间。</li>
+<li><strong>强大社群的10条建议：</strong>培养友谊、牢记矛盾(一只运动队伍会因为与其他队伍的矛盾变成一个强有力的社群)、运用建筑学去形成社区(创建一个场所，人们经常可以看见对方)、创造社区财产、让玩家表达自己、支持3种水平(菜鸟，普通玩家，老鸟)、迫使玩家互相依靠(迫使玩家相互交流，并鼓励他们互相帮助)、管理你的社群、负起对他人的责任、制造社群活动</li>
+<li>来自恶意破坏的挑战，一个好的办法是避免使用恶意破坏门槛很低的游戏系统，包括：玩家对玩家战斗；盗窃；交易；下流语言；挡路；漏洞。</li>
+</ul>
+</blockquote>
+<h3 id="第25章-设计师常与团队合作"><a href="#第25章-设计师常与团队合作" class="headerlink" title="第25章 设计师常与团队合作"></a>第25章 设计师常与团队合作</h3><blockquote>
+<ul>
+<li>成功合作的秘密在于爱，你必须热带你所制作的游戏</li>
+<li>爱的问题：团队成员不喜欢任何游戏(请那些人离开团队)、比起正在制作的游戏，更喜欢另一款游戏(看看他们正在开发的游戏里有没有吸引他们的部分，让游戏变得更有新意)、团队成员喜欢同一个游戏的不同版本(尽早让所有人都明确知道游戏的设计)</li>
+<li>团队交流：客观、清晰、持续、尊重、信任、诚实、隐私、团结、爱</li>
+</ul>
+</blockquote>
+<h3 id="第26章-团队有时通过文档进行沟通"><a href="#第26章-团队有时通过文档进行沟通" class="headerlink" title="第26章 团队有时通过文档进行沟通"></a>第26章 团队有时通过文档进行沟通</h3><blockquote>
+<ul>
+<li><strong>文档的目的：</strong>备忘与沟通</li>
+<li>设计文档：游戏设计概述、细节设计文档、故事概要</li>
+<li>工程文档：技术设计文档、管线概述、系统限制</li>
+<li>美术文档：美术圣经(能提供指导方案的简单文档)、概念美术纵览</li>
+<li>制作文档：游戏预算、资源跟踪、项目日程</li>
+<li>撰写文档：故事圣经(写明故事中能发生以及不能发生的事)、剧本、游戏教程与手册</li>
+<li>玩家文档：玩家攻略</li>
+</ul>
+</blockquote>
+<h3 id="第27章-通过试玩创造好游戏"><a href="#第27章-通过试玩创造好游戏" class="headerlink" title="第27章 通过试玩创造好游戏"></a>第27章 通过试玩创造好游戏</h3><blockquote>
+<ul>
+<li>游戏开发中的四种不同测试方式：焦点测试；QA测试；可用性测试；试玩测试。</li>
+<li>为什么：你的问题越具体，越容易从特别为这个问题准备的试玩测试中获得收获。</li>
+<li>测试者：开发者同事、亲朋好友、专家、一次性测试者。</li>
+<li>地点：工作室、测试实验室、公众场所、测试者家中、在线测试。</li>
+<li>观察重点：你要明确知道要找的东西、你通过测试首次发现的东西。</li>
+<li>行动计划：你是否应该到场，如果不能保持客观冷静，最好还是不要出席、试玩之前，应该对测试者说什么样的开场白，把要说的话提前写下来、测试进行时，最主要的经历应该放在玩家的脸上、收集数据、思考能否打扰正在进行游戏的玩家。</li>
+<li>调查问卷：优先使用图片、优先使用在线调查问卷、不要加入太多问题、使用5分计分制、在游戏之后马上发给他们问卷、安排专人来解答测试者的疑问、注明参与者年龄性别等信息、不要把调查数据当作圣经。</li>
+<li>采访：准备好一个问题列表、尽可能单独采访每一个测试者、避免记忆测试、不要用设计师的标准来要求测试者、尽量给玩家的回答留出余地、放弃你的自尊。</li>
+</ul>
+</blockquote>
+<h3 id="第28章-制作游戏的技术"><a href="#第28章-制作游戏的技术" class="headerlink" title="第28章 制作游戏的技术"></a>第28章 制作游戏的技术</h3><blockquote>
+<ul>
+<li>技术成熟度曲线：技术萌芽期、期望膨胀期、幻觉破灭期、复苏期、生产力成熟期。</li>
+<li>在我们选择使用的技术时，最重要的就是选择能够引领我们建设一个更好世界的技术。</li>
+</ul>
+</blockquote>
+<h3 id="第29章-你的游戏总有个客户"><a href="#第29章-你的游戏总有个客户" class="headerlink" title="第29章 你的游戏总有个客户"></a>第29章 你的游戏总有个客户</h3><blockquote>
+<ul>
+<li>应付客户的烂点子：试图理解客户为什么会出这样的主意</li>
+</ul>
+</blockquote>
+<h3 id="第30章-设计师要向客户推销自己的想法"><a href="#第30章-设计师要向客户推销自己的想法" class="headerlink" title="第30章 设计师要向客户推销自己的想法"></a>第30章 设计师要向客户推销自己的想法</h3><blockquote>
+<ul>
+<li><strong>成功推销的12条建议：</strong>敲开客户的门、展示你的认真、条理分明、充满激情、站在听众的角度、设计你的推销、熟悉所有细节、信心满满、灵活应对、事先预演、让他们成为创作者、后续进展</li>
+<li><strong>众筹：</strong>这是一项大工程、这是个提前预定的系统、尽可能降低筹资目标、期限越短越好、承诺尽量简单的回报、画面代替文字</li>
+</ul>
+</blockquote>
+<h3 id="第31章-设计师和客户都希望游戏能盈利"><a href="#第31章-设计师和客户都希望游戏能盈利" class="headerlink" title="第31章 设计师和客户都希望游戏能盈利"></a>第31章 设计师和客户都希望游戏能盈利</h3><blockquote>
+<ul>
+<li>了解你的商业模式、了解你的竞争对手、了解你的受众、了解财务语言、了解销量榜单</li>
+<li>壁垒的重要性：技术壁垒、硬件壁垒、专业领域壁垒、销售和市场壁垒、想象力壁垒、关系壁垒、不确定性壁垒</li>
+</ul>
+</blockquote>
+<h3 id="第32章-游戏改变玩家"><a href="#第32章-游戏改变玩家" class="headerlink" title="第32章 游戏改变玩家"></a>第32章 游戏改变玩家</h3><blockquote>
+<ul>
+<li>游戏有益的方面：情感维护(发泄怒火和沮丧的情绪、振作自己、重建观点、建立信心、放松)、连接彼此、练习、教育</li>
+<li>塑造性建议：定义你的改变、找到领域专家、创造可以代替教师的学习体验、不要试图做太多、合理地评估变化、选择正确的游戏场所、接受市场现状</li>
+<li>有害的部分：暴力元素、成瘾性</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230144418-11bfc44b-03b1-4022-b356-aa2b7267c325.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=213&id=ub3824345&margin=%5Bobject%20Object%5D&name=image.png&originHeight=213&originWidth=793&originalType=binary&ratio=1&rotation=0&showTitle=false&size=140297&status=done&style=none&taskId=u8091ff6f-ab73-4e0d-a31b-b6cb456391a&title=&width=793" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</blockquote>
+<h3 id="第33章-设计师担负的责任"><a href="#第33章-设计师担负的责任" class="headerlink" title="第33章 设计师担负的责任"></a>第33章 设计师担负的责任</h3><blockquote>
+<ul>
+<li>肩负责任</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230252952-c8e55241-4f18-4e9f-9ca3-94a567b11bcc.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=137&id=ub212889f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=137&originWidth=789&originalType=binary&ratio=1&rotation=0&showTitle=false&size=86588&status=done&style=none&taskId=ua3c62981-1f14-4820-9e9e-d87ff07548b&title=&width=789" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</blockquote>
+<h3 id="第34章-每个设计师都有个目标"><a href="#第34章-每个设计师都有个目标" class="headerlink" title="第34章 每个设计师都有个目标"></a>第34章 每个设计师都有个目标</h3><blockquote>
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230299706-929c6f2c-3d06-40f3-be76-f010cc8a09ef.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=133&id=u4c9de697&margin=%5Bobject%20Object%5D&name=image.png&originHeight=133&originWidth=784&originalType=binary&ratio=1&rotation=0&showTitle=false&size=85891&status=done&style=none&taskId=u28b8c6c7-0a22-4048-be01-4b531fb2985&title=&width=784" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+<li><img src="https://cdn.nlark.com/yuque/0/2022/png/21441051/1666230325882-dd2c6920-7500-4135-a20a-15d7f7cfe31f.png#clientId=ufd3718d7-57e8-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=229&id=u2d6eade1&margin=%5Bobject%20Object%5D&name=image.png&originHeight=229&originWidth=800&originalType=binary&ratio=1&rotation=0&showTitle=false&size=142871&status=done&style=none&taskId=u689d3a42-dff0-4f0b-87ea-70d14dd2cbb&title=&width=800" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</blockquote>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="category-chain-item">读书笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">#读书笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>《游戏设计艺术》读书笔记</div>
+      <div>https://hubenqi.github.io/2022/04/23/The%20Art%20of%20Game%20Design-note/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Hubenqi</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月23日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/09/blender3.0-note01/" title="Blender3.0学习笔记-甜甜圈">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Blender3.0学习笔记-甜甜圈</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/17/unity-ugui-adaptive/" title="Unity UI适配总结">
+                        <span class="hidden-mobile">Unity UI适配总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
