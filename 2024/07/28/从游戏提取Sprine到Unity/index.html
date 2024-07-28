@@ -16,23 +16,29 @@
   <meta name="author" content="Hubenqi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前期准备： 下载游戏链接 下载umodel工具链接 下载载umodel ACL动画支持扩展工具链接 破解游戏AES密钥，相关教程链接 AES：0xC35EBD04D2122FB55218B8621D0D13ACFCD7BA32052A50F8286B9A2FD2C26936    Umodel导出资源 UE版本选择4.27 Charchater文件夹是模型、Animation文件夹是动作 先打开">
+    <meta name="description" content="使用AssetStudio或者AssetRipper解包游戏工程  找到工程里对应的spine数据文件，分别是xxx.json，xxx.atlas.txt，xxx.png     打开spine选择导入数据，选择对应的xxx.json文件   可能会提示版本不对，就需要切换到对应版本即可    导入后一般会出现图片显示不正常     打开纹理解包器，选择文件xxx.atlas.txt，解包纹理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SD高达战斗联盟模型提取">
-<meta property="og:url" content="https://hubenqi.github.io/2024/01/10/SD%E9%AB%98%E8%BE%BE%E6%88%98%E6%96%97%E8%81%94%E7%9B%9F%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8F%96/index.html">
+<meta property="og:title" content="从游戏提取Sprine到Unity">
+<meta property="og:url" content="https://hubenqi.github.io/2024/07/28/%E4%BB%8E%E6%B8%B8%E6%88%8F%E6%8F%90%E5%8F%96Sprine%E5%88%B0Unity/index.html">
 <meta property="og:site_name" content="hubenqi">
-<meta property="og:description" content="前期准备： 下载游戏链接 下载umodel工具链接 下载载umodel ACL动画支持扩展工具链接 破解游戏AES密钥，相关教程链接 AES：0xC35EBD04D2122FB55218B8621D0D13ACFCD7BA32052A50F8286B9A2FD2C26936    Umodel导出资源 UE版本选择4.27 Charchater文件夹是模型、Animation文件夹是动作 先打开">
+<meta property="og:description" content="使用AssetStudio或者AssetRipper解包游戏工程  找到工程里对应的spine数据文件，分别是xxx.json，xxx.atlas.txt，xxx.png     打开spine选择导入数据，选择对应的xxx.json文件   可能会提示版本不对，就需要切换到对应版本即可    导入后一般会出现图片显示不正常     打开纹理解包器，选择文件xxx.atlas.txt，解包纹理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hubenqi.github.io/img/indexImg/gd.jpg">
-<meta property="article:published_time" content="2024-01-10T14:18:00.000Z">
-<meta property="article:modified_time" content="2024-01-10T15:02:10.204Z">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140265086-b97bb358-cf4f-4890-a17c-9ab2aaf60895.png#averageHue=%23f7f5f2&clientId=u111b0aa1-b75a-4&from=paste&height=83&id=u25373f70&originHeight=83&originWidth=188&originalType=binary&ratio=1&rotation=0&showTitle=false&size=2682&status=done&style=none&taskId=u93a83688-ad50-42b4-afe8-1111400bee8&title=&width=188">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140378807-8d30420a-feec-4252-a144-8c19b1d09c4b.png#averageHue=%23383737&clientId=u111b0aa1-b75a-4&from=paste&height=379&id=u17a78019&originHeight=379&originWidth=244&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29106&status=done&style=none&taskId=ud969eef8-f92f-4979-b840-60b0598eaf7&title=&width=244">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140459980-91b76336-5c94-4cf9-b237-6e6ee3ef4a9c.png#averageHue=%231fb21f&clientId=u111b0aa1-b75a-4&from=paste&height=182&id=ub33d294e&originHeight=182&originWidth=282&originalType=binary&ratio=1&rotation=0&showTitle=false&size=19663&status=done&style=none&taskId=uc7c7a2d6-646d-404a-8198-d0482c4436e&title=&width=282">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140665020-bb407d80-25a7-4184-bf5c-b37ae178d9b2.png#averageHue=%23735447&clientId=u111b0aa1-b75a-4&from=paste&height=494&id=u1acf8d22&originHeight=494&originWidth=545&originalType=binary&ratio=1&rotation=0&showTitle=false&size=60306&status=done&style=none&taskId=ue1d270aa-e04d-448a-85eb-77ad3fe3b8b&title=&width=545">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140696286-058bd952-15d5-4be1-b348-c3f15b212154.png#averageHue=%238b994e&clientId=u111b0aa1-b75a-4&from=paste&height=383&id=u9f2fb549&originHeight=383&originWidth=291&originalType=binary&ratio=1&rotation=0&showTitle=false&size=32485&status=done&style=none&taskId=ue5e116c0-af06-42f6-8015-ce197b7e348&title=&width=291">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140891036-188e0812-becc-4370-a3e8-1f64851d9442.png#averageHue=%23698554&clientId=u111b0aa1-b75a-4&from=paste&height=960&id=u88d5ca59&originHeight=960&originWidth=1355&originalType=binary&ratio=1&rotation=0&showTitle=false&size=217884&status=done&style=none&taskId=u61ee9122-2c3e-40e7-b195-f21e2ad2dcc&title=&width=1355">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722141115829-560600a6-62da-4fbf-b0ce-ec73e0b6691b.png#averageHue=%23ececeb&clientId=u111b0aa1-b75a-4&from=paste&height=626&id=u9349b7ae&originHeight=626&originWidth=1019&originalType=binary&ratio=1&rotation=0&showTitle=false&size=70689&status=done&style=none&taskId=u54fea1e1-d2ca-4608-bd0e-e6169d52a26&title=&width=1019">
+<meta property="article:published_time" content="2024-07-28T04:53:00.000Z">
+<meta property="article:modified_time" content="2024-07-28T05:49:25.327Z">
 <meta property="article:author" content="Hubenqi">
 <meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hubenqi.github.io/img/indexImg/gd.jpg">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140265086-b97bb358-cf4f-4890-a17c-9ab2aaf60895.png#averageHue=%23f7f5f2&clientId=u111b0aa1-b75a-4&from=paste&height=83&id=u25373f70&originHeight=83&originWidth=188&originalType=binary&ratio=1&rotation=0&showTitle=false&size=2682&status=done&style=none&taskId=u93a83688-ad50-42b4-afe8-1111400bee8&title=&width=188">
   
   
-  <title>SD高达战斗联盟模型提取 - hubenqi</title>
+  <title>从游戏提取Sprine到Unity - hubenqi</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -189,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SD高达战斗联盟模型提取"></span>
+            <span id="subtitle" data-typed-text="从游戏提取Sprine到Unity"></span>
           
         </div>
 
@@ -200,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-10 22:18" pubdate>
-          2024年1月10日 晚上
+        <time datetime="2024-07-28 12:53" pubdate>
+          2024年7月28日 下午
         </time>
       </span>
     
@@ -212,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          337 字
+          299 字
         
       </span>
     
@@ -261,39 +267,48 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SD高达战斗联盟模型提取</h1>
+            <h1 style="display: none">从游戏提取Sprine到Unity</h1>
             
             <div class="markdown-body">
               
-              <p><video width="100%" height="100%"  src="/video/Movie_001.mp4" controls autoplay loop></video></p>
-<h4 id="前期准备："><a href="#前期准备：" class="headerlink" title="前期准备："></a>前期准备：</h4><ul>
-<li>下载游戏<a target="_blank" rel="noopener" href="https://store.steampowered.com/app/824550/SD_GUNDAM/">链接</a></li>
-<li>下载umodel工具<a target="_blank" rel="noopener" href="https://www.gildor.org/en/projects/umodel">链接</a></li>
-<li>下载载umodel ACL动画支持扩展工具<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1WUS9lCtnAGPe0fppDX5kwg?pwd=yina">链接</a></li>
-<li>破解游戏AES密钥，相关教程<a target="_blank" rel="noopener" href="https://cs.rin.ru/forum/viewtopic.php?f=10&t=100672">链接</a><ul>
-<li>AES：0xC35EBD04D2122FB55218B8621D0D13ACFCD7BA32052A50F8286B9A2FD2C26936</li>
+              <ul>
+<li><p>使用AssetStudio或者AssetRipper解包游戏工程</p>
+</li>
+<li><p>找到工程里对应的spine数据文件，分别是xxx.json，xxx.atlas.txt，xxx.png</p>
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140265086-b97bb358-cf4f-4890-a17c-9ab2aaf60895.png#averageHue=%23f7f5f2&clientId=u111b0aa1-b75a-4&from=paste&height=83&id=u25373f70&originHeight=83&originWidth=188&originalType=binary&ratio=1&rotation=0&showTitle=false&size=2682&status=done&style=none&taskId=u93a83688-ad50-42b4-afe8-1111400bee8&title=&width=188" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</li>
+<li><p>打开spine选择导入数据，选择对应的xxx.json文件</p>
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140378807-8d30420a-feec-4252-a144-8c19b1d09c4b.png#averageHue=%23383737&clientId=u111b0aa1-b75a-4&from=paste&height=379&id=u17a78019&originHeight=379&originWidth=244&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29106&status=done&style=none&taskId=ud969eef8-f92f-4979-b840-60b0598eaf7&title=&width=244" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+<li>可能会提示版本不对，就需要切换到对应版本即可</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140459980-91b76336-5c94-4cf9-b237-6e6ee3ef4a9c.png#averageHue=%231fb21f&clientId=u111b0aa1-b75a-4&from=paste&height=182&id=ub33d294e&originHeight=182&originWidth=282&originalType=binary&ratio=1&rotation=0&showTitle=false&size=19663&status=done&style=none&taskId=uc7c7a2d6-646d-404a-8198-d0482c4436e&title=&width=282" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</li>
+<li><p>导入后一般会出现图片显示不正常</p>
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140665020-bb407d80-25a7-4184-bf5c-b37ae178d9b2.png#averageHue=%23735447&clientId=u111b0aa1-b75a-4&from=paste&height=494&id=u1acf8d22&originHeight=494&originWidth=545&originalType=binary&ratio=1&rotation=0&showTitle=false&size=60306&status=done&style=none&taskId=ue1d270aa-e04d-448a-85eb-77ad3fe3b8b&title=&width=545" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</li>
+<li><p>打开纹理解包器，选择文件xxx.atlas.txt，解包纹理</p>
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140696286-058bd952-15d5-4be1-b348-c3f15b212154.png#averageHue=%238b994e&clientId=u111b0aa1-b75a-4&from=paste&height=383&id=u9f2fb549&originHeight=383&originWidth=291&originalType=binary&ratio=1&rotation=0&showTitle=false&size=32485&status=done&style=none&taskId=ue5e116c0-af06-42f6-8015-ce197b7e348&title=&width=291" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</li>
+<li><p>使用纹理解包器解包图片时，有时候会报出错误，实质上的原因有可能是图集的大小与atlas上的size不一致（size大于图集实际大小）</p>
+</li>
+<li><p>所有文件就都正常导入</p>
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140891036-188e0812-becc-4370-a3e8-1f64851d9442.png#averageHue=%23698554&clientId=u111b0aa1-b75a-4&from=paste&height=960&id=u88d5ca59&originHeight=960&originWidth=1355&originalType=binary&ratio=1&rotation=0&showTitle=false&size=217884&status=done&style=none&taskId=u61ee9122-2c3e-40e7-b195-f21e2ad2dcc&title=&width=1355" srcset="/img/loading.gif" lazyload alt="image.png"></li>
+</ul>
+</li>
+<li><p>正常导出spine文件，可以使用json格式或者二进制，使用二进制需要注意修改文件扩展名</p>
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722141115829-560600a6-62da-4fbf-b0ce-ec73e0b6691b.png#averageHue=%23ececeb&clientId=u111b0aa1-b75a-4&from=paste&height=626&id=u9349b7ae&originHeight=626&originWidth=1019&originalType=binary&ratio=1&rotation=0&showTitle=false&size=70689&status=done&style=none&taskId=u54fea1e1-d2ca-4608-bd0e-e6169d52a26&title=&width=1019" srcset="/img/loading.gif" lazyload alt="a5bf2c25fe0693868aafe68ddc5116d.png"></li>
 </ul>
 </li>
 </ul>
-<h4 id="Umodel导出资源"><a href="#Umodel导出资源" class="headerlink" title="Umodel导出资源"></a>Umodel导出资源</h4><ul>
-<li>UE版本选择4.27</li>
-<li>Charchater文件夹是模型、Animation文件夹是动作</li>
-<li>先打开模型文件，然后append对应模型的动作文件</li>
-<li>导出资源，会有psk模型文件，psa动画文件和贴图</li>
-<li>因为武器是分开的，所以武器要独立导出</li>
-</ul>
-<p><img src="/img/SDGundam/01.png" srcset="/img/loading.gif" lazyload alt="image"></p>
-<h4 id="Blender导出FBX"><a href="#Blender导出FBX" class="headerlink" title="Blender导出FBX"></a>Blender导出FBX</h4><ul>
-<li>导入psk模型，然后导入psa模型动画</li>
-<li>选择fbx导出</li>
-<li>武器要分开导入导出</li>
-</ul>
-<p><img src="/img/SDGundam/02.png" srcset="/img/loading.gif" lazyload alt="image"></p>
-<h4 id="导入Unity引擎"><a href="#导入Unity引擎" class="headerlink" title="导入Unity引擎"></a>导入Unity引擎</h4><ul>
-<li>分别导出模型和武器</li>
-<li>把武器放到对应骨骼上，调整武器对应缩放比例</li>
-</ul>
-<p><img src="/img/SDGundam/03.png" srcset="/img/loading.gif" lazyload alt="image"></p>
 
               
             </div>
@@ -338,8 +353,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SD高达战斗联盟模型提取</div>
-      <div>https://hubenqi.github.io/2024/01/10/SD%E9%AB%98%E8%BE%BE%E6%88%98%E6%96%97%E8%81%94%E7%9B%9F%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8F%96/</div>
+      <div>从游戏提取Sprine到Unity</div>
+      <div>https://hubenqi.github.io/2024/07/28/%E4%BB%8E%E6%B8%B8%E6%88%8F%E6%8F%90%E5%8F%96Sprine%E5%88%B0Unity/</div>
     </div>
     <div class="license-meta">
       
@@ -351,7 +366,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月10日</div>
+          <div>2024年7月28日</div>
         </div>
       
       
@@ -381,18 +396,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/28/%E4%BB%8E%E6%B8%B8%E6%88%8F%E6%8F%90%E5%8F%96Sprine%E5%88%B0Unity/" title="从游戏提取Sprine到Unity">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">从游戏提取Sprine到Unity</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/31/2023yearend/" title="2023年计划与总结">
-                        <span class="hidden-mobile">2023年计划与总结</span>
+                      <a href="/2024/01/10/SD%E9%AB%98%E8%BE%BE%E6%88%98%E6%96%97%E8%81%94%E7%9B%9F%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8F%96/" title="SD高达战斗联盟模型提取">
+                        <span class="hidden-mobile">SD高达战斗联盟模型提取</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

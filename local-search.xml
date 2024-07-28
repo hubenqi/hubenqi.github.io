@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>从游戏提取Sprine到Unity</title>
+    <link href="/2024/07/28/%E4%BB%8E%E6%B8%B8%E6%88%8F%E6%8F%90%E5%8F%96Sprine%E5%88%B0Unity/"/>
+    <url>/2024/07/28/%E4%BB%8E%E6%B8%B8%E6%88%8F%E6%8F%90%E5%8F%96Sprine%E5%88%B0Unity/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p>使用AssetStudio或者AssetRipper解包游戏工程</p></li><li><p>找到工程里对应的spine数据文件，分别是xxx.json，xxx.atlas.txt，xxx.png</p><ul><li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140265086-b97bb358-cf4f-4890-a17c-9ab2aaf60895.png#averageHue=%23f7f5f2&clientId=u111b0aa1-b75a-4&from=paste&height=83&id=u25373f70&originHeight=83&originWidth=188&originalType=binary&ratio=1&rotation=0&showTitle=false&size=2682&status=done&style=none&taskId=u93a83688-ad50-42b4-afe8-1111400bee8&title=&width=188" alt="image.png"></li></ul></li><li><p>打开spine选择导入数据，选择对应的xxx.json文件</p><ul><li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140378807-8d30420a-feec-4252-a144-8c19b1d09c4b.png#averageHue=%23383737&clientId=u111b0aa1-b75a-4&from=paste&height=379&id=u17a78019&originHeight=379&originWidth=244&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29106&status=done&style=none&taskId=ud969eef8-f92f-4979-b840-60b0598eaf7&title=&width=244" alt="image.png"></li><li>可能会提示版本不对，就需要切换到对应版本即可</li><li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140459980-91b76336-5c94-4cf9-b237-6e6ee3ef4a9c.png#averageHue=%231fb21f&clientId=u111b0aa1-b75a-4&from=paste&height=182&id=ub33d294e&originHeight=182&originWidth=282&originalType=binary&ratio=1&rotation=0&showTitle=false&size=19663&status=done&style=none&taskId=uc7c7a2d6-646d-404a-8198-d0482c4436e&title=&width=282" alt="image.png"></li></ul></li><li><p>导入后一般会出现图片显示不正常</p><ul><li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140665020-bb407d80-25a7-4184-bf5c-b37ae178d9b2.png#averageHue=%23735447&clientId=u111b0aa1-b75a-4&from=paste&height=494&id=u1acf8d22&originHeight=494&originWidth=545&originalType=binary&ratio=1&rotation=0&showTitle=false&size=60306&status=done&style=none&taskId=ue1d270aa-e04d-448a-85eb-77ad3fe3b8b&title=&width=545" alt="image.png"></li></ul></li><li><p>打开纹理解包器，选择文件xxx.atlas.txt，解包纹理</p><ul><li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140696286-058bd952-15d5-4be1-b348-c3f15b212154.png#averageHue=%238b994e&clientId=u111b0aa1-b75a-4&from=paste&height=383&id=u9f2fb549&originHeight=383&originWidth=291&originalType=binary&ratio=1&rotation=0&showTitle=false&size=32485&status=done&style=none&taskId=ue5e116c0-af06-42f6-8015-ce197b7e348&title=&width=291" alt="image.png"></li></ul></li><li><p>使用纹理解包器解包图片时，有时候会报出错误，实质上的原因有可能是图集的大小与atlas上的size不一致（size大于图集实际大小）</p></li><li><p>所有文件就都正常导入</p><ul><li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722140891036-188e0812-becc-4370-a3e8-1f64851d9442.png#averageHue=%23698554&clientId=u111b0aa1-b75a-4&from=paste&height=960&id=u88d5ca59&originHeight=960&originWidth=1355&originalType=binary&ratio=1&rotation=0&showTitle=false&size=217884&status=done&style=none&taskId=u61ee9122-2c3e-40e7-b195-f21e2ad2dcc&title=&width=1355" alt="image.png"></li></ul></li><li><p>正常导出spine文件，可以使用json格式或者二进制，使用二进制需要注意修改文件扩展名</p><ul><li><img src="https://cdn.nlark.com/yuque/0/2024/png/21441051/1722141115829-560600a6-62da-4fbf-b0ce-ec73e0b6691b.png#averageHue=%23ececeb&clientId=u111b0aa1-b75a-4&from=paste&height=626&id=u9349b7ae&originHeight=626&originWidth=1019&originalType=binary&ratio=1&rotation=0&showTitle=false&size=70689&status=done&style=none&taskId=u54fea1e1-d2ca-4608-bd0e-e6169d52a26&title=&width=1019" alt="a5bf2c25fe0693868aafe68ddc5116d.png"></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Unity</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Unity</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SD高达战斗联盟模型提取</title>
     <link href="/2024/01/10/SD%E9%AB%98%E8%BE%BE%E6%88%98%E6%96%97%E8%81%94%E7%9B%9F%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8F%96/"/>
     <url>/2024/01/10/SD%E9%AB%98%E8%BE%BE%E6%88%98%E6%96%97%E8%81%94%E7%9B%9F%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8F%96/</url>
